@@ -6,6 +6,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
 }
 
 .notify-btn:hover {
@@ -14,13 +15,13 @@
     border-left: 10px solid var(--color-dark);
 }
 
-.notify-btn i {
+.notify-btn__icon {
     font-size: 1.8rem;
     margin-right: 10px;
     transition: .2s;
 }
 
-.aside-container-disabled .notify-btn i {
+.aside-container-disabled .notify-btn__icon {
     font-size: 2.6rem;
     margin-right: 0;
     margin-left: 5px;
@@ -43,5 +44,26 @@
 }
 
 .notify-btn:hover .notify-btn__notification-bubble {
+    background-color: var(--color-gray-dark);
+}
+
+.notify-btn__notification-bubble--small {
+    background-color: var(--color-orange);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    right: 24px;
+}
+
+.notify-btn__notification-bubble--small i {
+    font-size: 14px;
+}
+
+.notify-btn:hover .notify-btn__notification-bubble--small {
     background-color: var(--color-gray-dark);
 }
