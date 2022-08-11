@@ -3,6 +3,7 @@
     /* Fonts */
     --font-primary: 'Nunito', sans-serif;
     /* Colours */
+    --color-dropdown-hover: rgb(245, 245, 245);
     --color-light: #f9f9f9;
     --color-dark: #333333;
     --color-gray: #eeeeee;
@@ -27,13 +28,20 @@
 
 html,
 body {
+    font-size: 62.5%;
     font-family: var(--font-primary);
 }
 
 
 /* Universal Buttons */
-button:hover {
+button {
+    font-family: var(--font-primary);
     cursor: pointer;
+}
+
+input,
+::placeholder {
+    font-family: var(--font-primary);
 }
 
 .btn-transparent {

@@ -10,7 +10,6 @@ function App() {
   // Toggle Aside
   function toggleAside() {
     setAsideIsOpen(!asideIsOpen);
-    console.log(asideIsOpen)
   }
   // Open Aside
   function openAside() {
@@ -26,7 +25,9 @@ function App() {
             iconClass={`aside-container__button ${asideIsOpen ? 'fa-solid fa-angles-left' : 'fa-solid fa-angles-right'}`}
             handleClick={() => toggleAside()}
           />
-          <Aside />
+          <Aside
+            asideIsOpen={asideIsOpen}
+          />
         </div>
         <div className="main-container">
         </div>

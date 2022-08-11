@@ -1,0 +1,31 @@
+.fixed-btn {
+    width: 100%;
+    height: 60px;
+    padding: 0 15px 0 20px;
+    border-left: 10px solid transparent;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fixed-btn:hover {
+    cursor: pointer;
+    background-color: var(--color-dropdown-hover);
+    border-left: 10px solid var(--color-dark);
+}
+
+.fixed-btn i {
+    font-size: 1.8rem;
+    margin-right: 10px;
+    transition: .2s;
+}
+
+.aside-container-disabled .fixed-btn i {
+    font-size: 2.6rem;
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+.fixed-btn__title {
+    font-size: 2rem;
+}
