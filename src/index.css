@@ -1,0 +1,42 @@
+/* Variables */
+:root {
+    /* Fonts */
+    --font-primary: 'Nunito', sans-serif;
+    /* Colours */
+    --color-light: #f9f9f9;
+    --color-dark: #333333;
+    --color-gray: #eeeeee;
+    --color-gray-dark: #cecece;
+    --color-gray-darkest: #808080;
+    --color-primary: rgb(50, 200, 200);
+    --color-primary-light: rgb(233, 255, 255);
+    --color-orange: rgb(255, 237, 203);
+    --color-yellow: rgb(246, 209, 108);
+    --color-yellow-light: rgb(255, 248, 227);
+    --color-green: rgb(118, 240, 118);
+    --color-green-light: rgb(230, 255, 230);
+}
+
+
+/* Universal Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: var(--font-primary);
+}
+
+
+/* Universal Buttons */
+button:hover {
+    cursor: pointer;
+}
+
+.btn-transparent {
+    background-color: transparent;
+    border: none;
+}
