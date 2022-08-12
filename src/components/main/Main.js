@@ -1,6 +1,7 @@
 
 import MainPageHeader from '../../reusable/headers/MainPageHeader/MainPageHeader';
 import './Main.css';
+import MainFooter from './MainFooter/MainFooter';
 import MainNav from './MainNav/MainNav';
 import Dashboard from './pages/Dashboard/Dashboard';
 
@@ -52,6 +53,7 @@ function Main({ currentPageName, username, updateCurrentPageName }) {
                     />
                 </div>}
             </div>
+            <MainFooter />
         </main>
     )
 }
