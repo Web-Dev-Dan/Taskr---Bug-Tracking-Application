@@ -5,7 +5,7 @@ import FixedButton from '../../reusable/buttons/FixedButton/FixedButton';
 import NotifyButton from '../../reusable/buttons/NotifyButton/NotifyButton';
 import Dropdown from './Dropdown';
 
-function Aside({ asideIsOpen, handleClick, dropdownContentIsShown }) {
+function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrentPageName }) {
     return (
         <aside className="aside">
             {/* Logo */}
@@ -25,6 +25,7 @@ function Aside({ asideIsOpen, handleClick, dropdownContentIsShown }) {
                         icon="fa-solid fa-bolt"
                         title="Projects"
                         textIsShown={asideIsOpen}
+                        updateCurrentPageName={updateCurrentPageName}
                     />}
                     {!asideIsOpen && <FixedButton
                         icon="fa-solid fa-bolt"

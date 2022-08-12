@@ -2,10 +2,11 @@
 import { useState } from 'react';
 import './Dropdown.css';
 
-function Dropdown({ icon, title, textIsShown }) {
+function Dropdown({ icon, title, textIsShown, updateCurrentPageName }) {
     const [dropdownContentIsShown, setDropdownContentIsShown] = useState(false);
     function toggleDropdown() {
         setDropdownContentIsShown(!dropdownContentIsShown);
+        updateCurrentPageName('Projects');
     }
 
     return (
