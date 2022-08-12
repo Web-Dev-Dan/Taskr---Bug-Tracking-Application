@@ -6,6 +6,31 @@ import Main from './components/main/Main';
 import IconButton from './reusable/buttons/IconButton/IconButton';
 
 function App() {
+  // --- Dates ---
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+  function getDay() {
+    return days[new Date().getDay() - 1];
+  }
+  function getDate() {
+    return new Date().getDate();
+  }
+  function getMonth() {
+    return months[new Date().getMonth()];
+  }
+  function getYear() {
+    return new Date().getFullYear();
+  }
+  function getFullDate() {
+    const day = getDay();
+    const date = getDate();
+    const month = getMonth();
+    const year = getYear();
+    return `${day} ${date} ${month}, ${year}`;
+  }
+
+  console.log(getFullDate())
   // --- Aside ---
   const [asideIsOpen, setAsideIsOpen] = useState(true);
   // Toggle Aside
@@ -144,6 +169,7 @@ function App() {
             currentPageName={currentPageName}
             username={username}
             updateCurrentPageName={(page) => updateCurrentPageName(page)}
+            getYear={() => getYear()}
           />
         </div>
       </div>

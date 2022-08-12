@@ -34,12 +34,8 @@ body {
 }
 
 
-/* Universal Buttons */
-button {
-    font-family: var(--font-primary);
-    cursor: pointer;
-}
 
+/* Inputs */
 input {
     border: none;
 }
@@ -49,7 +45,19 @@ input,
     font-family: var(--font-primary);
 }
 
+/* Buttons */
+button {
+    font-family: var(--font-primary);
+    cursor: pointer;
+}
+
 .btn-transparent {
     background-color: transparent;
     border: none;
+}
+
+/* Links */
+.link-transparent {
+    color: inherit;
+    text-decoration: none;
 }

@@ -5,7 +5,7 @@ import MainFooter from './MainFooter/MainFooter';
 import MainNav from './MainNav/MainNav';
 import Dashboard from './pages/Dashboard/Dashboard';
 
-function Main({ currentPageName, username, updateCurrentPageName }) {
+function Main({ currentPageName, username, updateCurrentPageName, getYear }) {
     return (
         <main className="main">
             <MainNav
@@ -53,7 +53,9 @@ function Main({ currentPageName, username, updateCurrentPageName }) {
                     />
                 </div>}
             </div>
-            <MainFooter />
+            <MainFooter
+                getYear={getYear}
+            />
         </main>
     )
 }
