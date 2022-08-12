@@ -10,6 +10,7 @@
     --color-gray-dark: #cecece;
     --color-gray-darkest: #808080;
     --color-primary: rgb(50, 200, 200);
+    --color-primary-dark: rgb(38, 180, 180);
     --color-primary-light: rgb(233, 255, 255);
     --color-orange: rgb(255, 237, 203);
     --color-yellow: rgb(246, 209, 108);
@@ -37,6 +38,10 @@ body {
 button {
     font-family: var(--font-primary);
     cursor: pointer;
+}
+
+input {
+    border: none;
 }
 
 input,

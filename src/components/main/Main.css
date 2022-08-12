@@ -1,0 +1,10 @@
+.main {
+    height: calc(100vh);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.main-content {
+    background-color: rgb(243, 243, 243);
+    height: 2000px;
+}

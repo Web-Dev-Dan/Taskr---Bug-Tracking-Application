@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './App.css';
 import Aside from './components/aside/Aside';
+import Main from './components/main/Main';
 import IconButton from './reusable/buttons/IconButton/IconButton';
 
 function App() {
@@ -106,6 +107,9 @@ function App() {
   }
 
 
+  // --- USER DETAILS ---
+  const [username, setUsername] = useState('User');
+
   return (
     <div className="App">
       <div className="container">
@@ -120,6 +124,9 @@ function App() {
           />
         </div>
         <div className="main-container">
+          <Main
+            username={username}
+          />
         </div>
       </div>
     </div >

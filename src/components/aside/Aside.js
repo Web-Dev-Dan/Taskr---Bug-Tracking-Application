@@ -7,7 +7,7 @@ import Dropdown from './Dropdown';
 
 function Aside({ asideIsOpen, handleClick, dropdownContentIsShown }) {
     return (
-        <div className="aside">
+        <aside className="aside">
             {/* Logo */}
             <Logo
                 asideIsShown={asideIsOpen}
@@ -62,7 +62,7 @@ function Aside({ asideIsOpen, handleClick, dropdownContentIsShown }) {
                     />
                 </div>
             </div>
-        </div >
+        </aside >
     )
 }
 
