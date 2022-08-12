@@ -1,0 +1,16 @@
+.main-content__header {
+    padding: 70px 50px 50px 50px;
+    display: flex;
+    align-items: center;
+}
+
+.main-content__header--icon {
+    font-size: 3.6rem;
+    margin-right: 20px;
+    /* color: var(--color-primary); */
+}
+
+.main-content__header--header {
+    font-size: 4rem;
+    font-weight: 700;
+}
