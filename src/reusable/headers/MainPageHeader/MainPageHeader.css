@@ -1,5 +1,6 @@
 .main-content__header {
-    padding: 70px 50px 50px 50px;
+    height: 200px;
+    padding: 0 50px;
     display: flex;
     align-items: center;
 }

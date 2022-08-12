@@ -4,6 +4,11 @@ import './Main.css';
 import MainFooter from './MainFooter/MainFooter';
 import MainNav from './MainNav/MainNav';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Logout from './pages/Logout/Logout';
+import Messages from './pages/Messages/Messages';
+import Projects from './pages/Projects/Projects';
+import Reports from './pages/Reports/Reports';
+import Settings from './pages/Settings/Settings';
 
 function Main({ currentPageName, username, updateCurrentPageName, getYear }) {
     return (
@@ -27,30 +32,35 @@ function Main({ currentPageName, username, updateCurrentPageName, getYear }) {
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-bolt'
                     />
+                    <Projects />
                 </div>}
                 {currentPageName === 'Reports' && <div>
                     <MainPageHeader
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-bug'
                     />
+                    <Reports />
                 </div>}
                 {currentPageName === 'Messages' && <div>
                     <MainPageHeader
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-envelope'
                     />
+                    <Messages />
                 </div>}
                 {currentPageName === 'Settings' && <div>
                     <MainPageHeader
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-gear'
                     />
+                    <Settings />
                 </div>}
                 {currentPageName === 'Logout' && <div>
                     <MainPageHeader
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-arrow-right-from-bracket'
                     />
+                    <Logout />
                 </div>}
             </div>
             <MainFooter
