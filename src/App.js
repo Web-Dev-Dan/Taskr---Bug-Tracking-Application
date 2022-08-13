@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Aside from './components/aside/Aside';
 import Main from './components/main/Main';
@@ -179,6 +179,23 @@ function App() {
     }
   )
 
+  useEffect(() => { console.log('Rerendered') }, [currentPageName])
+
+  // Change Message isRead to true:
+  function updateMessageIsRead(id) {
+    userData.messages.filter(message => {
+      if (message.id === id) {
+        message.isRead = true;
+        setCurrentPageName('Reports');
+        setCurrentPageName('Messages');
+        console.log(`Current page is '${currentPageName}'.`)
+        // console.log('Changed');
+        // console.log(userData.messages);
+        // console.log(message)
+      }
+    })
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -200,7 +217,9 @@ function App() {
             updateCurrentPageName={(page) => updateCurrentPageName(page)}
             getYear={() => getYear()}
             userData={userData}
+            updateMessageIsRead={(id) => updateMessageIsRead(id)}
           />
+
         </div>
       </div>
     </div >

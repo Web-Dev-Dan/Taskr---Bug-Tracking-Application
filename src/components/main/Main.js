@@ -10,7 +10,7 @@ import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead }) {
     return (
         <main className="main">
             <MainNav
@@ -48,6 +48,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData }) {
                     />
                     <Messages
                         userData={userData}
+                        updateMessageIsRead={updateMessageIsRead}
                     />
                 </div>}
                 {currentPageName === 'Settings' && <div>

@@ -1,18 +1,27 @@
 
 import EmptyNotification from '../../../../reusable/notifications/EmptyNotification/EmptyNotification';
+import MessageBox from './MessageBox';
 import './Messages.css';
 
-function Messages({ userData }) {
-    console.log(userData.messages)
+function Messages({ userData, updateMessageIsRead }) {
+    console.log(userData.messages);
 
     return (
         <div className="messages">
             {/* Has Messages: */}
             {userData.messages.length > 0 && userData.messages.map(message => {
-                return <div className="message-container">
-                    <div className="message-container__top"></div>
-                    <div className="message-container__top"></div>
-                </div>
+                return <MessageBox
+                    key={message.id}
+                    id={message.id}
+                    title={message.title}
+                    author={message.author}
+                    timeCreated={message.timeCreated}
+                    dateCreated={message.dateCreated}
+                    content={message.content}
+                    isRead={message.isRead}
+                    isDeleted={message.isDeleted}
+                    updateMessageIsRead={updateMessageIsRead}
+                />
             })}
             {/* No Messages: */}
             {userData.messages.length === 0 &&
