@@ -46,7 +46,9 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData }) {
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-envelope'
                     />
-                    <Messages />
+                    <Messages
+                        userData={userData}
+                    />
                 </div>}
                 {currentPageName === 'Settings' && <div>
                     <MainPageHeader

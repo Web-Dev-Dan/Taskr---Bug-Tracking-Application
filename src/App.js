@@ -160,12 +160,17 @@ function App() {
           "title": "Example Message",
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
           "author": "Botty Bot",
+          "timeCreated": '11:15',
+          "dateCreated": 'Monday 12 August, 2022',
           "isRead": false,
           "isDeleted": false
         },
         {
           "id": 2,
           "title": "Example Message",
+          "author": "Botty Bot",
+          "timeCreated": '11:15',
+          "dateCreated": 'Monday 12 August, 2022',
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
           "isRead": true,
           "isDeleted": false
