@@ -30,7 +30,6 @@ function App() {
     return `${day} ${date} ${month}, ${year}`;
   }
 
-  console.log(getFullDate())
   // --- Aside ---
   const [asideIsOpen, setAsideIsOpen] = useState(true);
   // Toggle Aside
@@ -149,7 +148,30 @@ function App() {
 
   // --- USER DETAILS ---
   const [currentPageName, setCurrentPageName] = useState('Dashboard');
-  const [username, setUsername] = useState('Daniel');
+  // const [username, setUsername] = useState('Daniel');
+  const [userData, setUserData] = useState(
+    {
+      "username": "Daniel",
+      "projects": [],
+      "reports": [],
+      "messages": [
+        {
+          "id": 1,
+          "title": "Example Message",
+          "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
+          "isRead": false,
+          "isDeleted": false
+        },
+        {
+          "id": 2,
+          "title": "Example Message",
+          "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
+          "isRead": true,
+          "isDeleted": false
+        }
+      ]
+    }
+  )
 
   return (
     <div className="App">
@@ -163,14 +185,15 @@ function App() {
             asideIsOpen={asideIsOpen}
             handleClick={(title) => asideButtonClicked(title)}
             updateCurrentPageName={() => updateCurrentPageName('Projects')}
+            userData={userData}
           />
         </div>
         <div className="main-container">
           <Main
             currentPageName={currentPageName}
-            username={username}
             updateCurrentPageName={(page) => updateCurrentPageName(page)}
             getYear={() => getYear()}
+            userData={userData}
           />
         </div>
       </div>

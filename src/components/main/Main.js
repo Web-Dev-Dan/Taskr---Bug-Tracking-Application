@@ -10,13 +10,13 @@ import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 
-function Main({ currentPageName, username, updateCurrentPageName, getYear }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData }) {
     return (
         <main className="main">
             <MainNav
                 currentPageName={currentPageName}
-                username={username}
                 updateCurrentPageName={updateCurrentPageName}
+                userData={userData}
             />
             <div className="main-content">
                 {currentPageName === 'Dashboard' && <div>
