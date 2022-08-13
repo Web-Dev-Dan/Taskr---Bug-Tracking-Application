@@ -159,6 +159,7 @@ function App() {
           "id": 1,
           "title": "Example Message",
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
+          "author": "Botty Bot",
           "isRead": false,
           "isDeleted": false
         },

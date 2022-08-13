@@ -11,10 +11,10 @@ function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrent
     // const messageData = userData.messages;
 
     // Calculate Unread Notifications
-    let read_reportNotifications = userData.reports.filter(report => report.isRead === true);
-    let unread_reportNotifications = userData.reports.filter(report => report.isRead === false);
-    let read_messageNotifications = userData.messages.filter(message => message.isRead === true);
-    let unread_messageNotifications = userData.messages.filter(message => message.isRead === false);
+    let read_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === true) : 0;
+    let unread_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === false) : 0;
+    let read_messageNotifications = userData.messages ? userData.messages.filter(message => message.isRead === true) : 0;
+    let unread_messageNotifications = userData.messages ? userData.messages.filter(message => message.isRead === false) : 0;
 
     return (
         <aside className="aside">
