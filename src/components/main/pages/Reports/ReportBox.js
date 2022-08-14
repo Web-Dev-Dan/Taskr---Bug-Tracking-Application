@@ -1,10 +1,55 @@
 
+import { useState } from 'react';
 import './ReportBox.css';
 
 function ReportBox({ id, title, content, timeCreated, dateCreated, reportType, isRead, isDeleted }) {
+
+    const [reportIsOpen, setReportIsOpen] = useState(false);
+    function toggleOpenReport() {
+        setReportIsOpen(!reportIsOpen);
+        // if (!isRead) {
+        //     updateMessageIsRead(id);
+        //     console.log('Message has now been read!');
+        // }
+    }
+
+    function getReportClass() {
+        if (reportType === 'Update') {
+            return 'report--update';
+        } else if (reportType === 'Status Change') {
+            return 'report--status-change';
+        } else if (reportType === 'User Action') {
+            return 'report--user-action';
+        }
+    }
+
+    function getIconClass() {
+        if (reportType === 'Update') {
+            return 'fa-solid fa-info';
+        } else if (reportType === 'Status Change') {
+            return 'fa-solid fa-bolt';
+        } else if (reportType === 'User Action') {
+            return 'fa-solid fa-user';
+        }
+    }
+
     return (
-        <div>
-            REPORT BOX
+        <div className={`report-container ${getReportClass()}`}>
+            <button className="report-container__button btn-transparent">
+                <div className="report-container__button--top">
+                    <div className="report__icon-container">
+                        <div className="report__icon-container-inner">
+                            <i className={`report__icon ${getIconClass()}`}></i>
+                        </div>
+                    </div>
+                    <div className="report__content">
+                        <h3 className="report__content--header">{title}</h3>
+                    </div>
+                    <div className="report__details">
+                        <p className="report__details--text">{`Click to ${!reportIsOpen ? 'Open' : 'Close'}`}</p>
+                    </div>
+                </div>
+            </button>
         </div>
     )
 }

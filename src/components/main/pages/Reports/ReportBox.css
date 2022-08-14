@@ -1,0 +1,140 @@
+.report-container {
+    width: 100%;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.report-container__button {
+    width: 100%;
+    min-height: 70px;
+    overflow: hidden;
+}
+
+.report-container__button--top {
+    display: flex;
+}
+
+.report__icon-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report__icon-container-inner {
+    width: 35px;
+    height: 35px;
+    /* border: 5px solid white; */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report__icon {
+    color: white;
+    font-size: 20px;
+}
+
+.report__content {
+    font-size: 1.6rem;
+    min-height: 60px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.report__content--header {
+    color: black;
+}
+
+.report__details {
+    width: 140px;
+    min-height: 60px;
+    transform: translateX(100%);
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report__details--text {
+    font-size: 1.6rem;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.report--status-change .report__details--text {
+    color: var(--color-green-dark);
+}
+
+.report--update .report__details--text {
+    color: var(--color-primary-dark);
+}
+
+.report--user-action .report__details--text {
+    color: var(--color-yellow);
+}
+
+/* Report Hovered */
+.report-container:hover {
+    transform: translateX(-10px);
+    border: 2px solid var(--color-primary);
+}
+
+.report-container:hover .report__details {
+    transform: translateX(0);
+}
+
+
+
+
+/* Unique Styling (for report types) */
+/* .report--update {
+    background-color: var(--color-primary-light);
+    border: 3px solid var(--color-primary);
+}
+
+.report--status-change {
+    background-color: var(--color-green-light);
+    border: 3px solid var(--color-green);
+}
+
+.report--user-action {
+    background-color: var(--color-orange);
+    border: 3px solid var(--color-yellow);
+} */
+
+
+
+
+/* Icon BG Colours */
+.report--status-change .report__icon-container-inner {
+    background-color: var(--color-green);
+}
+
+.report--update .report__icon-container-inner {
+    background-color: var(--color-primary);
+}
+
+.report--user-action .report__icon-container-inner {
+    background-color: var(--color-yellow);
+}
+
+
+/* Report Box - Hover States */
+.report--status-change:hover {
+    background-color: var(--color-green-light);
+}
+
+.report--update:hover {
+    background-color: var(--color-primary-light);
+}
+
+.report--user-action:hover {
+    background-color: var(--color-orange);
+}

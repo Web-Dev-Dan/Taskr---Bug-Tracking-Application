@@ -178,6 +178,16 @@ function App() {
           "reportType": "Update",
           "isRead": true,
           "isDeleted": false
+        },
+        {
+          "id": 3,
+          "title": "Created a New Project: 'Portfolio Site",
+          "content": null,
+          "timeCreated": "10:30",
+          "dateCreated": "Saturday 13 August, 2022",
+          "reportType": "User Action",
+          "isRead": false,
+          "isDeleted": false
         }
       ],
       "messages": [
