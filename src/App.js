@@ -198,7 +198,7 @@ function App() {
           "author": "Botty Bot",
           "timeCreated": "11:15",
           "dateCreated": "Monday 12 August, 2022",
-          "isRead": false,
+          "isRead": true,
           "isDeleted": false
         },
         {
@@ -218,7 +218,7 @@ function App() {
           "timeCreated": '18:30',
           "dateCreated": 'Tuesday 13 August, 2022',
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
-          "isRead": true,
+          "isRead": false,
           "isDeleted": false
         }
       ]

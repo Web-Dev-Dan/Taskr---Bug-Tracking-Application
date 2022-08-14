@@ -38,6 +38,8 @@
 
 .message__content--header {
     color: black;
+    text-align: center;
+    line-height: 1.5;
 }
 
 .message__details {

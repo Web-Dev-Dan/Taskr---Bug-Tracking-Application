@@ -6,6 +6,10 @@
     transition: .3s;
 }
 
+.report-container:hover {
+    background-color: var(--color-primary-light);
+}
+
 .report-container__button {
     width: 100%;
     min-height: 70px;
@@ -17,17 +21,17 @@
 }
 
 .report__icon-container {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .report__icon-container-inner {
+    background-color: var(--color-primary);
     width: 35px;
     height: 35px;
-    /* border: 5px solid white; */
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -50,6 +54,8 @@
 
 .report__content--header {
     color: black;
+    text-align: left;
+    line-height: 1.5;
 }
 
 .report__details {
@@ -63,21 +69,16 @@
 }
 
 .report__details--text {
+    color: var(--color-primary-dark);
     font-size: 1.6rem;
     text-align: center;
     line-height: 1.5;
 }
 
-.report--status-change .report__details--text {
-    color: var(--color-green-dark);
-}
-
-.report--update .report__details--text {
-    color: var(--color-primary-dark);
-}
-
-.report--user-action .report__details--text {
-    color: var(--color-yellow);
+.report__type-box {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 3px 7px;
 }
 
 /* Report Hovered */
@@ -91,29 +92,75 @@
 }
 
 
+/* Report Content (Hidden) */
+.report-container__button--bottom {
+    padding-bottom: 20px;
+}
 
+.report-container__content {
+    margin-left: 31px;
+    margin-right: 150px;
+    padding: 0 0 0 50px;
+    border-left: 6px solid var(--color-primary);
+    border-left: 6px solid rgb(168, 233, 233);
+}
 
-/* Unique Styling (for report types) */
-/* .report--update {
+.report-container__content--text {
+    font-size: 1.8rem;
+    font-weight: 100;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 20px;
+
+}
+
+.report-container__content--info {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Report Read */
+.report-read .report--header {
+    font-weight: 300;
+}
+
+.report-read .report__icon-container-inner {
     background-color: var(--color-primary-light);
-    border: 3px solid var(--color-primary);
 }
 
-.report--status-change {
-    background-color: var(--color-green-light);
-    border: 3px solid var(--color-green);
+.report-read .report__icon {
+    color: var(--color-primary-dark);
 }
 
-.report--user-action {
-    background-color: var(--color-orange);
-    border: 3px solid var(--color-yellow);
+.report-read .report__content--header {
+    font-weight: 300;
+}
+
+/* Report Hidden */
+.report-hidden .report-container__button--bottom {
+    display: none;
+}
+
+
+
+/* .report--status-change .report__details--text {
+    color: var(--color-green-dark);
+}
+
+.report--update .report__details--text {
+    color: var(--color-primary-dark);
+}
+
+.report--user-action .report__details--text {
+    color: var(--color-yellow);
 } */
 
-
-
-
 /* Icon BG Colours */
-.report--status-change .report__icon-container-inner {
+/* .report--status-change .report__icon-container-inner {
     background-color: var(--color-green);
 }
 
@@ -123,11 +170,11 @@
 
 .report--user-action .report__icon-container-inner {
     background-color: var(--color-yellow);
-}
+} */
 
 
 /* Report Box - Hover States */
-.report--status-change:hover {
+/* .report--status-change:hover {
     background-color: var(--color-green-light);
 }
 
@@ -137,4 +184,4 @@
 
 .report--user-action:hover {
     background-color: var(--color-orange);
-}
+} */
