@@ -3,3 +3,7 @@
     min-height: calc(100vh - 380px);
     padding: 0 50px 50px 50px;
 }
+
+.messages .empty-message-container {
+    margin-top: 50px;
+}

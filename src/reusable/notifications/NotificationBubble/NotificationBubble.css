@@ -1,0 +1,29 @@
+.notification-container {
+    background-color: var(--color-primary);
+    margin: 0 0 30px 70px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    /* display: flex;
+    align-items: center; */
+}
+
+.notification {
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.notification--text {
+    font-size: 1.6rem;
+}
+
+
+
+.notification-container--empty {
+    background-color: var(--color-gray);
+}
+
+.notification-container--empty .notification {
+    color: var(--color-gray-darkest);
+}

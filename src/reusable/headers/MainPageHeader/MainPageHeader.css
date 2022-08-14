@@ -1,5 +1,7 @@
 .main-content__header {
-    height: 200px;
+    /* background-color: red; */
+    height: 100px;
+    margin-top: 50px;
     padding: 0 50px;
     display: flex;
     align-items: center;
