@@ -6,10 +6,6 @@ import NotifyButton from '../../reusable/buttons/NotifyButton/NotifyButton';
 import Dropdown from './Dropdown';
 
 function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrentPageName, userData }) {
-    // console.log(userData.messages.length)
-    // const reportData = userData.reports;
-    // const messageData = userData.messages;
-
     // Calculate Unread Notifications
     let read_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === true) : 0;
     let unread_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === false) : 0;
@@ -56,7 +52,6 @@ function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrent
                         notificationCount={unread_messageNotifications.length}
                         textIsShown={asideIsOpen}
                         handleClick={handleClick}
-                        userData={userData}
                     />
                 </div>
                 <div className="aside__button-container--bottom">

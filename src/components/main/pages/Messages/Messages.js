@@ -4,7 +4,7 @@ import MessageBox from './MessageBox';
 import './Messages.css';
 
 function Messages({ userData, updateMessageIsRead }) {
-    console.log(userData.messages);
+    // console.log(userData.messages);
 
     return (
         <div className="messages">
