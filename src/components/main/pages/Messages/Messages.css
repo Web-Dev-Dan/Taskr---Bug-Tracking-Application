@@ -4,6 +4,10 @@
     padding: 0 50px 50px 50px;
 }
 
+.messages .notification-container {
+    margin-top: 30px;
+}
+
 .messages .empty-message-container {
     margin-top: 50px;
 }

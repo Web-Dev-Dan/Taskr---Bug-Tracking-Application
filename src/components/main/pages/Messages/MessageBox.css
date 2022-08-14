@@ -67,6 +67,7 @@
     margin-right: 150px;
     padding: 0 0 0 50px;
     border-left: 6px solid var(--color-primary);
+    border-left: 6px solid rgb(168, 233, 233);
 }
 
 .message-container__content--text {
@@ -104,6 +105,7 @@
 
 .message-read .message__icon {
     color: var(--color-primary-dark);
+    color: rgb(168, 233, 233);
 }
 
 /* Message Hidden */
