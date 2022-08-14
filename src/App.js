@@ -169,8 +169,8 @@ function App() {
           "id": 2,
           "title": "Example Message",
           "author": "Botty Bot",
-          "timeCreated": '11:15',
-          "dateCreated": 'Monday 12 August, 2022',
+          "timeCreated": '18:30',
+          "dateCreated": 'Tuesday 13 August, 2022',
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
           "isRead": true,
           "isDeleted": false
@@ -179,19 +179,11 @@ function App() {
     }
   )
 
-  useEffect(() => { console.log('Rerendered') }, [currentPageName])
-
   // Change Message isRead to true:
   function updateMessageIsRead(id) {
     userData.messages.filter(message => {
       if (message.id === id) {
         message.isRead = true;
-        setCurrentPageName('Reports');
-        setCurrentPageName('Messages');
-        console.log(`Current page is '${currentPageName}'.`)
-        // console.log('Changed');
-        // console.log(userData.messages);
-        // console.log(message)
       }
     })
   }

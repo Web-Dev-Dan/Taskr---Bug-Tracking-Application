@@ -4,26 +4,17 @@
     transition: .3s;
 }
 
-.message-container__top {
-    /* background-color: blue; */
-    color: var(--color-gray-darkest);
+.message-container__button {
     width: 100%;
     min-height: 60px;
-    display: flex;
     overflow: hidden;
 }
 
-.message-container:hover {
-    background-color: var(--color-primary-light);
-    transform: translateX(-10px);
-}
-
-.message-container:hover .message__details {
-    transform: translateX(0);
+.message-container__button--top {
+    display: flex;
 }
 
 .message__icon-container {
-    /* background-color: red; */
     width: 60px;
     height: 60px;
     display: flex;
@@ -32,24 +23,24 @@
 }
 
 .message__icon {
+    color: var(--color-primary);
     font-size: 30px;
 }
 
 .message__content {
-    /* background-color: yellow; */
     font-size: 1.6rem;
     min-height: 60px;
     padding: 10px 20px;
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex: 1;
 }
 
-.message__content--header {}
+.message__content--header {
+    color: black;
+}
 
 .message__details {
-    /* background-color: blue; */
     width: 140px;
     min-height: 60px;
     transform: translateX(100%);
@@ -66,12 +57,56 @@
     line-height: 1.5;
 }
 
-.message-container__bottom {
-    background-color: yellow;
-    width: 100%;
-    height: 100px;
+
+.message-container__button--bottom {
+    padding-bottom: 20px;
 }
 
-.message-hidden .message-container__bottom {
+.message-container__content {
+    margin-left: calc(30px - 3px);
+    margin-right: 150px;
+    padding: 0 0 0 50px;
+    border-left: 6px solid var(--color-primary);
+}
+
+.message-container__content--text {
+    font-size: 1.8rem;
+    font-weight: 100;
+    line-height: 1.5;
+    text-align: left;
+    margin-bottom: 20px;
+
+}
+
+.message-container__content--info {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Message Hovered */
+.message-container:hover {
+    background-color: var(--color-primary-light);
+    transform: translateX(-10px);
+}
+
+.message-container:hover .message__details {
+    transform: translateX(0);
+}
+
+/* Message Read */
+.message-read .message__content--header {
+    font-weight: 300;
+}
+
+.message-read .message__icon {
+    color: var(--color-primary-dark);
+}
+
+/* Message Hidden */
+.message-hidden .message-container__button--bottom {
     display: none;
 }
