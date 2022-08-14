@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useDeferredValue } from 'react';
 import './App.css';
 import Aside from './components/aside/Aside';
 import Main from './components/main/Main';
@@ -153,15 +153,41 @@ function App() {
     {
       "username": "Daniel",
       "projects": [],
-      "reports": [],
+      "reports": [
+        /* REPORT TYPES: 
+            - "User Action" (activity by user - creating new projects, adding/deleting/editing tickets)
+            - "Status Change" (user changes status of ticket)
+            - "Update" (app update - changelog)
+        */
+        {
+          "id": 1,
+          "title": "Moved '' from To-Do status to 'In Progress' status.",
+          "content": null,
+          "timeCreated": "13:05",
+          "dateCreated": "Wednesday 5 July, 2022",
+          "reportType": "Status Change",
+          "isRead": false,
+          "isDeleted": false
+        },
+        {
+          "id": 2,
+          "title": "Updated Dashboard UI",
+          "content": "Hello User! First, thank you for using Taskr. We hope that you are having a pleasant experience organising your tasks. We have exciting news! The Taskr Dashbard has received a funky makeover from our frontend team to make it easier for you to reference your information more easily. Enjoy!",
+          "timeCreated": "17:10",
+          "dateCreated": "Friday 12 August, 2022",
+          "reportType": "Update",
+          "isRead": true,
+          "isDeleted": false
+        }
+      ],
       "messages": [
         {
           "id": 1,
           "title": "Example Message",
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
           "author": "Botty Bot",
-          "timeCreated": '11:15',
-          "dateCreated": 'Monday 12 August, 2022',
+          "timeCreated": "11:15",
+          "dateCreated": "Monday 12 August, 2022",
           "isRead": false,
           "isDeleted": false
         },
@@ -203,6 +229,23 @@ function App() {
   // *Function to re-render userData once updated:
   function updateAll() {
     setUserData({ ...userData });
+  }
+
+  // Create New Message Function (currently inactive)
+  function createNewMessage(title, author, timeCreated, dateCreated, content, isRead, isDeleted) {
+    userData.messages.push(
+      {
+        "id": userData.messages.length + 1,
+        "title": "New One",
+        "author": "Botty Bot",
+        "timeCreated": '18:30',
+        "dateCreated": 'Tuesday 13 August, 2022',
+        "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
+        "isRead": false,
+        "isDeleted": false
+      }
+    )
+    updateAll()
   }
 
   return (

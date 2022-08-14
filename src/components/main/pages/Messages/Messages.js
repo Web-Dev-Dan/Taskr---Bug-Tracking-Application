@@ -10,14 +10,11 @@ function Messages({ userData, updateMessageIsRead }) {
 
     return (
         <div className="messages">
-            {/* <div className={`messages__notification-container ${unread_messageNotifications.length === 0 && 'messages__notification-container--empty'}`}>
-                <div className="messages__notification">
-                    {unread_messageNotifications.length < 0 ? <p className="messages__notification--text">You have <strong>{unread_messageNotifications.length} new {unread_messageNotifications.length === 1 ? 'message' : 'messages'}</strong>.</p> : <p className="messages__notification--text">You have {unread_messageNotifications.length} new messages.</p>}
-                    {unread_messageNotifications.length === 0 && <p className="messages__notification--text">You have {unread_messageNotifications.length} new messages.</p>}
-                </div>
-            </div> */}
+            {/* Notification Bubble (if not empty) */}
             {userData.messages.length !== 0 && <NotificationBubble
                 notificationCount={unread_messageNotifications.length}
+                textSingular='message'
+                textPlural='messages'
             />}
             {/* Has Messages: */}
             {userData.messages.length > 0 && userData.messages.map(message => {
