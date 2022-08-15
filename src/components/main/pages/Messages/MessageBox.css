@@ -106,8 +106,9 @@
 }
 
 .message-read .message__icon {
-    color: var(--color-primary-dark);
-    color: rgb(168, 233, 233);
+    /* color: var(--color-primary-dark);
+    color: rgb(168, 233, 233); */
+    opacity: .5;
 }
 
 /* Message Hidden */
