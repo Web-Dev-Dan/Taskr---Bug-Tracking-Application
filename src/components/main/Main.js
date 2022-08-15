@@ -1,5 +1,4 @@
 
-import { useEffect, useRef, useState } from 'react';
 import MainPageHeader from '../../reusable/headers/MainPageHeader/MainPageHeader';
 import './Main.css';
 import MainFooter from './MainFooter/MainFooter';
