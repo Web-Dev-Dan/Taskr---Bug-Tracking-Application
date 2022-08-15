@@ -1,0 +1,24 @@
+.button-strong {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.button-strong:hover {
+    background-color: black;
+}
+
+.button-strong__icon {
+    font-size: 1.8rem;
+    margin-right: 10px;
+}
+
+.button-strong__text {
+    font-size: 2rem;
+    font-weight: 100;
+    white-space: nowrap;
+}

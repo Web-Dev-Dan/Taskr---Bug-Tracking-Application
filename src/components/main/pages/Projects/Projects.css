@@ -1,5 +1,36 @@
 .projects {
     width: 100%;
     min-height: calc(100vh - 380px);
-    padding: 0 50px 50px 50px;
+    padding: 30px 50px 50px 50px;
+}
+
+.projects__add-form {
+    max-width: 600px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.add-form__input {
+    background-color: white;
+    font-size: 2rem;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--color-gray-dark);
+    transition: .5s;
+}
+
+.projects__add-form:hover .add-form__input {
+    flex: 1;
+}
+
+.add-form__input:focus {
+    flex: 1;
+}
+
+.add-form__input::placeholder {
+    font-weight: 300;
+}
+
+.projects__add-form .button-strong {
+    margin-left: 10px;
 }

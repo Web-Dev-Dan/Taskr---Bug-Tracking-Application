@@ -54,6 +54,7 @@ body {
 /* Inputs */
 input {
     border: none;
+    font-family: var(--font-primary);
 }
 
 input,

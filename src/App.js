@@ -154,11 +154,6 @@ function App() {
       "username": "Daniel",
       "projects": [],
       "reports": [
-        /* REPORT TYPES: 
-            - "User Action" (activity by user - creating new projects, adding/deleting/editing tickets)
-            - "Status Change" (user changes status of ticket)
-            - "Update" (app update - changelog)
-        */
         {
           "id": 1,
           "title": "Moved 'Update Header' from 'To-Do' to 'In Progress'.",

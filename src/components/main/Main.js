@@ -32,7 +32,9 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-bolt'
                     />
-                    <Projects />
+                    <Projects
+                        userData={userData}
+                    />
                 </div>}
                 {currentPageName === 'Reports' && <div>
                     <MainPageHeader
