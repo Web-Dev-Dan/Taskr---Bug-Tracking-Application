@@ -11,7 +11,7 @@ import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead }) {
     return (
         <main className="main">
             <MainNav
@@ -42,6 +42,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                     />
                     <Reports
                         userData={userData}
+                        updateReportIsRead={updateReportIsRead}
                     />
                 </div>}
                 {currentPageName === 'Messages' && <div>

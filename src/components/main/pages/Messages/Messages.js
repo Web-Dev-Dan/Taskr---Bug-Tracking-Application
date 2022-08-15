@@ -5,7 +5,7 @@ import MessageBox from './MessageBox';
 import './Messages.css';
 
 function Messages({ userData, updateMessageIsRead }) {
-    console.log(userData.messages);
+    // console.log(userData.messages);
     let unread_messageNotifications = userData.messages ? userData.messages.filter(message => message.isRead === false) : 0;
 
     return (

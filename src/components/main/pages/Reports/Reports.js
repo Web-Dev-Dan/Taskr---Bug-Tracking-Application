@@ -4,8 +4,8 @@ import NotificationBubble from '../../../../reusable/notifications/NotificationB
 import ReportBox from './ReportBox';
 import './Reports.css';
 
-function Reports({ userData }) {
-    console.log(userData.reports);
+function Reports({ userData, updateReportIsRead }) {
+    // console.log(userData.reports);
     let unread_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === false) : 0;
 
     return (
@@ -28,6 +28,7 @@ function Reports({ userData }) {
                     reportType={report.reportType}
                     isRead={report.isRead}
                     isDeleted={report.isDeleted}
+                    updateReportIsRead={updateReportIsRead}
                 />
             })}
             {/* No Repors: */}

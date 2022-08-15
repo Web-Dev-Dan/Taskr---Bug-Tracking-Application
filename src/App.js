@@ -236,6 +236,17 @@ function App() {
     })
   }
 
+  // Change Report isRead to true:
+  function updateReportIsRead(id) {
+    userData.reports.filter(report => {
+      if (report.id === id) {
+        report.isRead = true;
+        console.log(report);
+        updateAll();
+      }
+    })
+  }
+
   // *Function to re-render userData once updated:
   function updateAll() {
     setUserData({ ...userData });
@@ -280,6 +291,7 @@ function App() {
             getYear={() => getYear()}
             userData={userData}
             updateMessageIsRead={(id) => updateMessageIsRead(id)}
+            updateReportIsRead={(id) => updateReportIsRead(id)}
           />
 
         </div>
