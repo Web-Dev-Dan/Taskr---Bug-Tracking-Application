@@ -17,20 +17,22 @@ function Reports({ userData, updateReportIsRead }) {
                 textPlural='reports'
             />}
             {/* Has Reports: */}
-            {userData.reports.length > 0 && userData.reports.map(report => {
-                return <ReportBox
-                    key={report.id}
-                    id={report.id}
-                    title={report.title}
-                    content={report.content}
-                    timeCreated={report.timeCreated}
-                    dateCreated={report.dateCreated}
-                    reportType={report.reportType}
-                    isRead={report.isRead}
-                    isDeleted={report.isDeleted}
-                    updateReportIsRead={updateReportIsRead}
-                />
-            })}
+            <div className="reports__display">
+                {userData.reports.length > 0 && userData.reports.map(report => {
+                    return <ReportBox
+                        key={report.id}
+                        id={report.id}
+                        title={report.title}
+                        content={report.content}
+                        timeCreated={report.timeCreated}
+                        dateCreated={report.dateCreated}
+                        reportType={report.reportType}
+                        isRead={report.isRead}
+                        isDeleted={report.isDeleted}
+                        updateReportIsRead={updateReportIsRead}
+                    />
+                })}
+            </div>
             {/* No Repors: */}
             {userData.reports.length === 0 &&
                 <EmptyNotification

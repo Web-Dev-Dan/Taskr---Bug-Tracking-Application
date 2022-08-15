@@ -8,6 +8,11 @@
     margin-top: 30px;
 }
 
+.reports__display {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .reports .empty-message-container {
     margin-top: 50px;
 }
