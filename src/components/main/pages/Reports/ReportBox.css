@@ -2,6 +2,7 @@
     width: 100%;
     margin-bottom: 20px;
     border: 2px solid transparent;
+    /* border: 2px solid var(--color-primary); */
     border-radius: 10px;
     transition: .3s;
 }
@@ -130,10 +131,14 @@
 
 .report-read .report__icon-container-inner {
     background-color: var(--color-primary-light);
+    background-color: transparent;
+    background-color: var(--color-primary);
+    opacity: .5;
 }
 
 .report-read .report__icon {
     color: var(--color-primary-dark);
+    color: white;
 }
 
 .report-read .report__content--header {
@@ -147,41 +152,109 @@
 
 
 
-/* .report--status-change .report__details--text {
-    color: var(--color-green-dark);
+/* UNIQUE BOX COLOURS */
+/* Warning */
+.report--warning .report__icon-container-inner {
+    background-color: var(--color-warning);
 }
 
-.report--update .report__details--text {
-    color: var(--color-primary-dark);
+.report--warning:hover {
+    background-color: var(--color-warning-light);
+    border: 2px solid var(--color-warning);
 }
 
-.report--user-action .report__details--text {
-    color: var(--color-yellow);
-} */
-
-/* Icon BG Colours */
-/* .report--status-change .report__icon-container-inner {
-    background-color: var(--color-green);
+.report--warning .report-container__content {
+    border-left: 6px solid rgb(255, 176, 176);
 }
 
-.report--update .report__icon-container-inner {
-    background-color: var(--color-primary);
+.report--warning .report-container__content--info {
+    color: var(--color-warning);
 }
 
-.report--user-action .report__icon-container-inner {
-    background-color: var(--color-yellow);
-} */
-
-
-/* Report Box - Hover States */
-/* .report--status-change:hover {
-    background-color: var(--color-green-light);
+.report--warning .report__type-box {
+    background-color: var(--color-warning);
 }
 
-.report--update:hover {
-    background-color: var(--color-primary-light);
+.report--warning .report__details--text {
+    color: var(--color-warning);
 }
 
-.report--user-action:hover {
-    background-color: var(--color-orange);
-} */
+/* Status Change */
+.report--status-change .report__icon-container-inner {
+    background-color: var(--color-status-change);
+}
+
+.report--status-change:hover {
+    background-color: var(--color-status-change-light);
+    border: 2px solid var(--color-status-change);
+}
+
+.report--status-change .report-container__content {
+    border-left: 6px solid rgb(251, 228, 184);
+}
+
+.report--status-change .report-container__content--info {
+    color: var(--color-status-change);
+}
+
+.report--status-change .report__type-box {
+    background-color: var(--color-status-change);
+}
+
+.report--status-change .report__details--text {
+    color: var(--color-status-change);
+}
+
+
+/* Complete */
+.report--complete .report__icon-container-inner {
+    background-color: var(--color-complete);
+}
+
+.report--complete:hover {
+    background-color: var(--color-complete-light);
+    border: 2px solid var(--color-complete);
+}
+
+.report--complete .report-container__content {
+    border-left: 6px solid rgb(186, 234, 186);
+}
+
+.report--complete .report-container__content--info {
+    color: var(--color-complete);
+}
+
+.report--complete .report__type-box {
+    background-color: var(--color-complete);
+}
+
+.report--complete .report__details--text {
+    color: var(--color-complete);
+}
+
+
+/* User Update */
+.report--user-update .report__icon-container-inner {
+    background-color: var(--color-user-update);
+}
+
+.report--user-update:hover {
+    background-color: var(--color-user-update-light);
+    border: 2px solid var(--color-user-update);
+}
+
+.report--user-update .report-container__content {
+    border-left: 6px solid rgb(227, 177, 227);
+}
+
+.report--user-update .report-container__content--info {
+    color: var(--color-user-update);
+}
+
+.report--user-update .report__type-box {
+    background-color: var(--color-user-update);
+}
+
+.report--user-update .report__details--text {
+    color: var(--color-user-update);
+}

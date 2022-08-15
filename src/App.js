@@ -161,7 +161,7 @@ function App() {
         */
         {
           "id": 1,
-          "title": "Moved '' from To-Do status to 'In Progress' status.",
+          "title": "Moved 'Update Header' from 'To-Do' to 'In Progress'.",
           "content": null,
           "timeCreated": "13:05",
           "dateCreated": "Wednesday 5 July, 2022",
@@ -176,16 +176,36 @@ function App() {
           "timeCreated": "17:10",
           "dateCreated": "Friday 12 August, 2022",
           "reportType": "Update",
-          "isRead": true,
+          "isRead": false,
           "isDeleted": false
         },
         {
           "id": 3,
-          "title": "Created a New Project: 'Portfolio Site",
+          "title": "Created a New Project: 'Portfolio'.",
           "content": null,
           "timeCreated": "10:30",
           "dateCreated": "Saturday 13 August, 2022",
-          "reportType": "User Action",
+          "reportType": "User Update",
+          "isRead": false,
+          "isDeleted": false
+        },
+        {
+          "id": 4,
+          "title": "Project 'Portfolio' Deleted",
+          "content": null,
+          "timeCreated": "10:30",
+          "dateCreated": "Saturday 13 August, 2022",
+          "reportType": "Warning",
+          "isRead": false,
+          "isDeleted": false
+        },
+        {
+          "id": 5,
+          "title": "Finished Ticket for 'Portfolio'.",
+          "content": null,
+          "timeCreated": "10:30",
+          "dateCreated": "Saturday 13 August, 2022",
+          "reportType": "Complete",
           "isRead": false,
           "isDeleted": false
         }

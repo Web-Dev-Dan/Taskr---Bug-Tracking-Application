@@ -18,6 +18,15 @@
     --color-green-dark: rgb(80, 154, 80);
     --color-green: rgb(118, 240, 118);
     --color-green-light: rgb(230, 255, 230);
+
+    --color-warning: rgb(248, 92, 92);
+    --color-warning-light: rgb(255, 229, 229);
+    --color-status-change: rgb(246, 191, 90);
+    --color-status-change-light: rgb(255, 244, 223);
+    --color-complete: rgb(117, 191, 117);
+    --color-complete-light: rgb(222, 255, 222);
+    --color-user-update: rgb(162, 92, 162);
+    --color-user-update-light: rgb(255, 233, 255);
 }
 
 

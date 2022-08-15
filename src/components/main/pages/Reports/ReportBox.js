@@ -18,8 +18,12 @@ function ReportBox({ id, title, content, timeCreated, dateCreated, reportType, i
             return 'report--update';
         } else if (reportType === 'Status Change') {
             return 'report--status-change';
-        } else if (reportType === 'User Action') {
-            return 'report--user-action';
+        } else if (reportType === 'User Update') {
+            return 'report--user-update';
+        } else if (reportType === 'Warning') {
+            return 'report--warning';
+        } else if (reportType === 'Complete') {
+            return 'report--complete';
         }
     }
 
@@ -27,9 +31,13 @@ function ReportBox({ id, title, content, timeCreated, dateCreated, reportType, i
         if (reportType === 'Update') {
             return 'fa-solid fa-info';
         } else if (reportType === 'Status Change') {
-            return 'fa-solid fa-bolt';
-        } else if (reportType === 'User Action') {
+            return 'fa-solid fa-pencil';
+        } else if (reportType === 'User Update') {
             return 'fa-solid fa-user';
+        } else if (reportType === 'Warning') {
+            return 'fa-solid fa-exclamation';
+        } else if (reportType === 'Complete') {
+            return 'fa-solid fa-fire';
         }
     }
 
