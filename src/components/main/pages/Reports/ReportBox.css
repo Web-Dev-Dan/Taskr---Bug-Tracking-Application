@@ -1,9 +1,9 @@
 .report-container {
     width: 100%;
     margin-bottom: 20px;
-    border: 2px solid transparent;
+    /* border: 2px solid transparent; */
     /* border: 2px solid var(--color-primary); */
-    border-radius: 10px;
+    /* border-radius: 10px; */
     transition: .3s;
 }
 
@@ -85,7 +85,7 @@
 /* Report Hovered */
 .report-container:hover {
     transform: translateX(-10px);
-    border: 2px solid var(--color-primary);
+    /* border: 2px solid var(--color-primary); */
 }
 
 .report-container:hover .report__details {
@@ -160,7 +160,7 @@
 
 .report--warning:hover {
     background-color: var(--color-warning-light);
-    border: 2px solid var(--color-warning);
+    /* border: 2px solid var(--color-warning); */
 }
 
 .report--warning .report-container__content {
@@ -186,7 +186,7 @@
 
 .report--status-change:hover {
     background-color: var(--color-status-change-light);
-    border: 2px solid var(--color-status-change);
+    /* border: 2px solid var(--color-status-change); */
 }
 
 .report--status-change .report-container__content {
@@ -213,7 +213,7 @@
 
 .report--complete:hover {
     background-color: var(--color-complete-light);
-    border: 2px solid var(--color-complete);
+    /* border: 2px solid var(--color-complete); */
 }
 
 .report--complete .report-container__content {
@@ -240,7 +240,7 @@
 
 .report--user-update:hover {
     background-color: var(--color-user-update-light);
-    border: 2px solid var(--color-user-update);
+    /* border: 2px solid var(--color-user-update); */
 }
 
 .report--user-update .report-container__content {
@@ -257,4 +257,30 @@
 
 .report--user-update .report__details--text {
     color: var(--color-user-update);
+}
+
+/* Update */
+.report--update .report__icon-container-inner {
+    background-color: var(--color-update);
+}
+
+.report--update:hover {
+    background-color: var(--color-update-light);
+    /* border: 2px solid var(--color-update); */
+}
+
+.report--update .report-container__content {
+    border-left: 6px solid rgb(161, 228, 228);
+}
+
+.report--update .report-container__content--info {
+    color: var(--color-update);
+}
+
+.report--update .report__type-box {
+    background-color: var(--color-update);
+}
+
+.report--update .report__details--text {
+    color: var(--color-update);
 }
