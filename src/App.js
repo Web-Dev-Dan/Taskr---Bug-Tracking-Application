@@ -32,8 +32,8 @@ function App() {
 
   // --- ⏰ Times ⏰ ---
   function getCurrentTime() {
-    const hours = new Date().getHours();
-    const minutes = new Date().getMinutes();
+    let hours = new Date().getHours();
+    let minutes = new Date().getMinutes();
 
     if (hours < 10) {
       hours = `${0}${hours}`;
@@ -325,11 +325,14 @@ function App() {
       {
         "id": userData.projects.length + 1,
         "title": projectName,
-        "author": "Dan",
+        "author": userData.username,
         "timeCreated": getCurrentTime(),
         "dateCreated": getFullDate(),
-        "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
-        "isRead": false,
+        "tasks": {
+          "toDo": [],
+          "inProgress": [],
+          "complete": []
+        },
         "isDeleted": false
       }
     )

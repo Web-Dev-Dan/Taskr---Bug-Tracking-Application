@@ -1,8 +1,9 @@
 
 import { useState } from 'react';
 import './Dropdown.css';
+import DropdownOption from './DropdownOption';
 
-function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewProject }) {
+function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewProject, userData }) {
     // Toggle Dropdown
     const [dropdownContentIsShown, setDropdownContentIsShown] = useState(false);
     function toggleDropdown() {
@@ -41,6 +42,16 @@ function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewPr
                         </div>
                     </button>
                 </form>
+                {/* Dropdown Options */}
+                {userData.projects.length > 0 && <div className="dropdown-content__options">
+                    {userData.projects.map(project => {
+                        return <DropdownOption
+                            key={project.id}
+                            id={project.id}
+                            title={project.title}
+                        />
+                    })}
+                </div>}
             </div>}
         </div>
     )

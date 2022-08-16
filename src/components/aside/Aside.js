@@ -33,6 +33,7 @@ function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrent
                         textIsShown={asideIsOpen}
                         updateCurrentPageName={updateCurrentPageName}
                         createNewProject={createNewProject}
+                        userData={userData}
                     />}
                     {!asideIsOpen && <FixedButton
                         icon="fa-solid fa-bolt"

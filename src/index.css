@@ -29,8 +29,8 @@
     --color-status-change-light: rgb(255, 244, 223);
     --color-complete: rgb(117, 191, 117);
     --color-complete-light: rgb(222, 255, 222);
-    --color-user-update: rgb(162, 92, 162);
-    --color-user-update-light: rgb(254, 242, 254);
+    --color-user-update: rgb(141, 98, 250);
+    --color-user-update-light: rgb(242, 237, 255);
     --color-update: rgb(50, 200, 200);
     --color-update-light: rgb(233, 255, 255);
 }
