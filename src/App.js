@@ -66,6 +66,8 @@ function App() {
   const [settingsIsOpen, setSettingsIsOpen] = useState(false);
   const [logoutIsOpen, setLogoutIsOpen] = useState(false);
 
+  const [projectPageIsOpen, setProjectPageIsOpen] = useState(false);
+
   // Aside Button Clicked:
   function asideButtonClicked(title) {
     if (title === 'Dashboard') {
@@ -94,6 +96,7 @@ function App() {
     setMessagesIsOpen(false);
     setSettingsIsOpen(false);
     setLogoutIsOpen(false);
+    setProjectPageIsOpen(false);
   }
 
   function openProjects() {
@@ -107,6 +110,7 @@ function App() {
     setMessagesIsOpen(false);
     setSettingsIsOpen(false);
     setLogoutIsOpen(false);
+    setProjectPageIsOpen(false);
   }
 
   function openReports() {
@@ -119,6 +123,7 @@ function App() {
     setMessagesIsOpen(false);
     setSettingsIsOpen(false);
     setLogoutIsOpen(false);
+    setProjectPageIsOpen(false);
   }
 
   function openMessages() {
@@ -131,6 +136,7 @@ function App() {
     setMessagesIsOpen(true);
     setSettingsIsOpen(false);
     setLogoutIsOpen(false);
+    setProjectPageIsOpen(false);
   }
 
   function openSettings() {
@@ -143,6 +149,7 @@ function App() {
     setMessagesIsOpen(false);
     setSettingsIsOpen(true);
     setLogoutIsOpen(false);
+    setProjectPageIsOpen(false);
   }
 
   function openLogout() {
@@ -155,6 +162,20 @@ function App() {
     setMessagesIsOpen(false);
     setSettingsIsOpen(false);
     setLogoutIsOpen(true);
+    setProjectPageIsOpen(false);
+  }
+
+  function openProjectPage() {
+    console.log('Project Page Opened!')
+    updateCurrentPageName('Project Page');
+
+    setDashboardIsOpen(false);
+    setProjectsIsOpen(false);
+    setReportsIsOpen(false);
+    setMessagesIsOpen(false);
+    setSettingsIsOpen(false);
+    setLogoutIsOpen(false);
+    setProjectPageIsOpen(true);
   }
 
   function updateCurrentPageName(page) {
@@ -169,48 +190,48 @@ function App() {
     {
       "username": "Daniel",
       "projects": [
-        {
-          "id": 1,
-          "title": "Portfolio Website",
-          "author": "Michael",
-          "timeCreated": getCurrentTime(),
-          "dateCreated": getFullDate(),
-          "tasks": {
-            "toDo": ["Make banner"],
-            "inProgress": ["Finish project", "upload project"],
-            "complete": ["Deploy site"]
-          },
-          "isDeleted": false,
-          "isComplete": false
-        },
-        {
-          "id": 2,
-          "title": "Taskr",
-          "author": "Michael",
-          "timeCreated": getCurrentTime(),
-          "dateCreated": getFullDate(),
-          "tasks": {
-            "toDo": [],
-            "inProgress": [],
-            "complete": []
-          },
-          "isDeleted": false,
-          "isComplete": false
-        },
-        {
-          "id": 3,
-          "title": "Wordle Clone",
-          "author": "Michael",
-          "timeCreated": getCurrentTime(),
-          "dateCreated": getFullDate(),
-          "tasks": {
-            "toDo": [],
-            "inProgress": [],
-            "complete": []
-          },
-          "isDeleted": false,
-          "isComplete": false
-        },
+        // {
+        //   "id": 1,
+        //   "title": "Portfolio Website",
+        //   "author": "Michael",
+        //   "timeCreated": getCurrentTime(),
+        //   "dateCreated": getFullDate(),
+        //   "tasks": {
+        //     "toDo": ["Make banner"],
+        //     "inProgress": ["Finish project", "upload project"],
+        //     "complete": ["Deploy site"]
+        //   },
+        //   "isDeleted": false,
+        //   "isComplete": false
+        // },
+        // {
+        //   "id": 2,
+        //   "title": "Taskr",
+        //   "author": "Michael",
+        //   "timeCreated": getCurrentTime(),
+        //   "dateCreated": getFullDate(),
+        //   "tasks": {
+        //     "toDo": [],
+        //     "inProgress": [],
+        //     "complete": []
+        //   },
+        //   "isDeleted": false,
+        //   "isComplete": false
+        // },
+        // {
+        //   "id": 3,
+        //   "title": "Wordle Clone",
+        //   "author": "Michael",
+        //   "timeCreated": getCurrentTime(),
+        //   "dateCreated": getFullDate(),
+        //   "tasks": {
+        //     "toDo": [],
+        //     "inProgress": [],
+        //     "complete": []
+        //   },
+        //   "isDeleted": false,
+        //   "isComplete": false
+        // },
       ],
       "reports": [
         {

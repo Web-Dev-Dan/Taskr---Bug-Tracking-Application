@@ -6,6 +6,7 @@ import MainNav from './MainNav/MainNav';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Logout from './pages/Logout/Logout';
 import Messages from './pages/Messages/Messages';
+import ProjectPage from './pages/Projects/ProjectPage/ProjectPage';
 import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
@@ -35,6 +36,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                     <Projects
                         userData={userData}
                         createNewProject={createNewProject}
+                        updateCurrentPageName={updateCurrentPageName}
                     />
                 </div>}
                 {currentPageName === 'Reports' && <div>
@@ -70,6 +72,9 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         iconClasses='fa-solid fa-arrow-right-from-bracket'
                     />
                     <Logout />
+                </div>}
+                {currentPageName === 'Project Page' && <div>
+                    <ProjectPage />
                 </div>}
             </div>
             <MainFooter

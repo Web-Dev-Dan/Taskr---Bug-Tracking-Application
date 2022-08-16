@@ -1,9 +1,9 @@
 
 import './ProjectBox.css';
 
-function ProjectBox({ id, title, author, timeCreated, dateCreated, toDo, inProgress, complete, isDeleted, isComplete }) {
+function ProjectBox({ id, title, author, timeCreated, dateCreated, toDo, inProgress, complete, isDeleted, isComplete, updateCurrentPageName }) {
     return (
-        <button className="project-box btn-transparent">
+        <button onClick={() => updateCurrentPageName('Project Page')} className="project-box btn-transparent">
             <div className="project-box__header">
                 <div className="project-box__header--icon-container">
                     <i className="project-box__header--icon fa-solid fa-bolt"></i>
