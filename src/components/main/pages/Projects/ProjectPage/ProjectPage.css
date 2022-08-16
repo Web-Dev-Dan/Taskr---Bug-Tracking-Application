@@ -1,8 +1,33 @@
 .project-page {
+    /* background-color: red; */
     width: 100%;
-    min-height: calc(100vh - 380px);
+    min-height: calc(100vh - 180px);
     padding: 0 50px 50px 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.main__head {
+    padding: 70px 0 50px 0;
+}
+
+.main__head-info {}
+
+.head-info__title {
+    font-family: var(--font-primary);
+    font-size: 4.4rem;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.head-info__title::placeholder {
+    font-family: var(--font-primary);
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.head-info__date {
+    color: var(--color-gray-darkest);
+    font-size: 1.8rem;
+    font-weight: 100;
 }

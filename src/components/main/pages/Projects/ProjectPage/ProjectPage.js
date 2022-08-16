@@ -2,27 +2,26 @@
 import { useState, useEffect } from 'react';
 import './ProjectPage.css';
 
-function ProjectPage({ userData, currentProjectId }) {
+function ProjectPage({ userData, currentProjectId, project, updateInputValue }) {
     return (
         <div className="project-page">
-            {userData.projects.map(project => {
-                if (project.id === currentProjectId) {
-                    return <h1>{project.title}</h1>
-                }
-            })}
-
-
-
+            {/* Project Title Information */}
+            <div className="main__head">
+                <div className="main__head-info">
+                    <input onChange={(e, target) => updateInputValue(e, project)} className="head-info__title" value={project.title} placeholder="Add Project Name..." type="text" />
+                    <p className="head-info__date">Created on {project.dateCreated} at {project.timeCreated}.</p>
+                </div>
+            </div>
 
             {/* {userData.projects.map(project => {
-                console.log(`Project ID: ${project.id}`);
-                console.log(`Current Project ID: ${currentProjectId}`)
-                if (project.id !== currentProjectId) {
-                    return <div className="tet">
-                        <h1>This is {project.title}</h1>
+                if (project.id === currentProjectId) {
+                    return <div>
+                        <h1>{project.title}</h1>
                     </div>
                 }
             })} */}
+
+
         </div >
     )
 }
