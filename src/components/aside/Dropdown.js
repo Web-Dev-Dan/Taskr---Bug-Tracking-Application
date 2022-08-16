@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Dropdown.css';
 import DropdownOption from './DropdownOption';
 
-function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewProject, userData }) {
+function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewProject, userData, openProjectPage }) {
     // Toggle Dropdown
     const [dropdownContentIsShown, setDropdownContentIsShown] = useState(false);
     function toggleDropdown() {
@@ -49,6 +49,7 @@ function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewPr
                             key={project.id}
                             id={project.id}
                             title={project.title}
+                            openProjectPage={openProjectPage}
                         />
                     })}
                 </div>}

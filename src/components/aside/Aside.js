@@ -5,7 +5,7 @@ import FixedButton from '../../reusable/buttons/FixedButton/FixedButton';
 import NotifyButton from '../../reusable/buttons/NotifyButton/NotifyButton';
 import Dropdown from './Dropdown';
 
-function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrentPageName, userData, createNewProject }) {
+function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrentPageName, userData, createNewProject, openProjectPage }) {
     // Calculate Unread Notifications
     let read_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === true) : 0;
     let unread_reportNotifications = userData.reports ? userData.reports.filter(report => report.isRead === false) : 0;
@@ -34,6 +34,7 @@ function Aside({ asideIsOpen, handleClick, dropdownContentIsShown, updateCurrent
                         updateCurrentPageName={updateCurrentPageName}
                         createNewProject={createNewProject}
                         userData={userData}
+                        openProjectPage={openProjectPage}
                     />}
                     {!asideIsOpen && <FixedButton
                         icon="fa-solid fa-bolt"

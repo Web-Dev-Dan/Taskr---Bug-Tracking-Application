@@ -5,7 +5,7 @@ import EmptyNotification from '../../../../reusable/notifications/EmptyNotificat
 import ProjectBox from './ProjectBox';
 import './Projects.css';
 
-function Projects({ userData, createNewProject, updateCurrentPageName }) {
+function Projects({ userData, createNewProject, openProjectPage }) {
     // Update 'Create a Project' Input Value:
     const [newProjectName, setNewProjectName] = useState('');
     function handleChange(e) {
@@ -52,7 +52,7 @@ function Projects({ userData, createNewProject, updateCurrentPageName }) {
                             complete={project.tasks.complete}
                             isDeleted={project.isDeleted}
                             isComplete={project.isComplete}
-                            updateCurrentPageName={updateCurrentPageName}
+                            openProjectPage={openProjectPage}
                         />
                     })}
                 </div>

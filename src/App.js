@@ -165,7 +165,10 @@ function App() {
     setProjectPageIsOpen(false);
   }
 
-  function openProjectPage() {
+  // OPEN PROJECT
+  const [currentProjectId, setCurrentProjectId] = useState(null);
+
+  function openProjectPage(id) {
     console.log('Project Page Opened!')
     updateCurrentPageName('Project Page');
 
@@ -176,6 +179,15 @@ function App() {
     setSettingsIsOpen(false);
     setLogoutIsOpen(false);
     setProjectPageIsOpen(true);
+
+    userData.projects.map(project => {
+      if (project.id === id) {
+        // console.log('ID is ' + project);
+        console.log(project);
+        setCurrentProjectId(project.id);
+      }
+      console.log(`Opening Project ID ${id}`);
+    });
   }
 
   function updateCurrentPageName(page) {
@@ -419,6 +431,7 @@ function App() {
             updateCurrentPageName={() => updateCurrentPageName('Projects')}
             userData={userData}
             createNewProject={(projectName) => createNewProject(projectName)}
+            openProjectPage={(id) => openProjectPage(id)}
           />
         </div>
         <div className="main-container">
@@ -430,6 +443,9 @@ function App() {
             updateMessageIsRead={(id) => updateMessageIsRead(id)}
             updateReportIsRead={(id) => updateReportIsRead(id)}
             createNewProject={(projectName) => createNewProject(projectName)}
+            openProjectPage={(id) => openProjectPage(id)}
+            currentProjectId={currentProjectId}
+            openProjects={() => openProjects()}
           />
 
         </div>

@@ -1,10 +1,13 @@
 
 import './MainNav.css';
 
-function MainNav({ currentPageName, updateCurrentPageName, userData }) {
+function MainNav({ currentPageName, updateCurrentPageName, userData, openProjects }) {
     return (
         <div className="main-nav">
-            <p className="main-nav__text">Welcome to your <strong>{currentPageName}</strong>.</p>
+            {currentPageName !== 'Project Page' && <p className="main-nav__text">Welcome to your <strong>{currentPageName}</strong>.</p>}
+            {currentPageName === 'Project Page' && <button onClick={() => openProjects()} className="main-nav__back-button btn-transparent">
+                <i className="main-nav__back-button--icon fa-solid fa-arrow-left"></i>
+            </button>}
             <div className="main-nav__profile">
                 <p className="main-nav__profile-name">{userData.username}</p>
                 <button onClick={() => updateCurrentPageName('Settings')} className="main-nav__profile-pic btn-transparent">

@@ -11,13 +11,14 @@ import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects }) {
     return (
         <main className="main">
             <MainNav
                 currentPageName={currentPageName}
                 updateCurrentPageName={updateCurrentPageName}
                 userData={userData}
+                openProjects={openProjects}
             />
             <div className="main-content">
                 {currentPageName === 'Dashboard' && <div>
@@ -37,6 +38,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         userData={userData}
                         createNewProject={createNewProject}
                         updateCurrentPageName={updateCurrentPageName}
+                        openProjectPage={openProjectPage}
                     />
                 </div>}
                 {currentPageName === 'Reports' && <div>
@@ -74,7 +76,10 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                     <Logout />
                 </div>}
                 {currentPageName === 'Project Page' && <div>
-                    <ProjectPage />
+                    <ProjectPage
+                        userData={userData}
+                        projectId={currentProjectId}
+                    />
                 </div>}
             </div>
             <MainFooter
