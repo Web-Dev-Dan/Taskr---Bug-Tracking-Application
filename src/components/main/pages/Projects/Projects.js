@@ -1,6 +1,8 @@
 
 import { useState } from 'react';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
+import EmptyNotification from '../../../../reusable/notifications/EmptyNotification/EmptyNotification';
+import ProjectBox from './ProjectBox';
 import './Projects.css';
 
 function Projects({ userData, createNewProject }) {
@@ -20,6 +22,7 @@ function Projects({ userData, createNewProject }) {
     }
     return (
         <div className="projects">
+            {/* Add New Project Form */}
             <form className="projects__add-form">
                 <input onChange={(e) => handleChange(e)} className="add-form__input" value={newProjectName} placeholder="Create a Project..."></input>
                 <ButtonStrong
@@ -28,6 +31,36 @@ function Projects({ userData, createNewProject }) {
                     handleClick={(e) => handleClick(e)}
                 />
             </form>
+            {/* MAIN CONTENT */}
+            {userData.projects.length > 0 && <div className="projects__content">
+                {/* Projects Overview */}
+                <div className="projects__overview">
+
+                </div>
+                {/* Projects List */}
+                <div className="projects__project-list">
+                    {userData.projects.map(project => {
+                        return <ProjectBox
+                            key={project.id}
+                            id={project.id}
+                            title={project.title}
+                            author={project.author}
+                            timeCreated={project.timeCreated}
+                            dateCreated={project.dateCreated}
+                            toDo={project.tasks.toDo}
+                            inProgress={project.tasks.inProgress}
+                            complete={project.tasks.complete}
+                            isDeleted={project.isDeleted}
+                            isComplete={project.isComplete}
+                        />
+                    })}
+                </div>
+            </div>}
+            {/* No Projects */}
+            {userData.projects.length === 0 && <EmptyNotification
+                icon='fa-solid fa-box-open'
+                text='Looks like you have no projects!'
+            />}
         </div>
     )
 }

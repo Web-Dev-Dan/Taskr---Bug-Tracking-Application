@@ -1,0 +1,143 @@
+.project-box {
+    min-width: 300px;
+    padding: 30px 0;
+    border-top: 3px solid var(--color-gray-darkest);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    padding-bottom: 70px;
+}
+
+.project-box:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-light);
+    border-top: 3px solid var(--color-primary);
+}
+
+.project-box__header {
+    width: 100%;
+}
+
+.project-box__header--icon-container {
+    background-color: var(--color-primary);
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-box__header--icon {
+    color: white;
+    font-size: 2rem;
+    transition: 1s;
+}
+
+.project-box__header--text {
+    font-size: 2.6rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.project-box__notification-container {
+    width: 100%;
+    min-height: 40px;
+    padding: 5px 0;
+    position: relative;
+}
+
+.project-box__notification {
+    color: var(--color-primary-dark);
+    font-size: 1.6rem;
+    font-weight: 300;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    right: -100%;
+    transform: translateY(-50%) translateX(0);
+    transition: .3s;
+}
+
+.project-box__summary {
+    height: 20px;
+    margin: 0 auto;
+    display: flex;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.project-box__summary-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.project-box__summary--icon {
+    font-size: 2.6rem;
+    margin-right: 10px;
+}
+
+.project-box__summary--text {
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.project-box:hover .project-box__header--icon-container {
+    animation-name: projectBoxColourChange;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.project-box:hover .project-box__header--icon {
+    animation-name: projectIconShake;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+.project-box:hover .project-box__notification {
+    right: 50%;
+    transform: translateY(-50%) translateX(50%);
+}
+
+.project-box:hover .project-box__summary-inner {
+    color: var(--color-primary-dark);
+    margin-top: 30px;
+}
+
+
+
+@keyframes projectIconShake {
+    0% {
+        transform: scale(100%);
+    }
+
+    50% {
+        transform: scale(120%);
+    }
+
+    100% {
+        transform: scale(100%);
+    }
+}
+
+@keyframes projectBoxColourChange {
+    0% {
+        background-color: var(--color-primary);
+    }
+
+    50% {
+        background-color: var(--color-primary-dark);
+    }
+
+    100% {
+        background-color: var(--color-primary);
+    }
+}

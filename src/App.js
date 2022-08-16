@@ -168,7 +168,50 @@ function App() {
   const [userData, setUserData] = useState(
     {
       "username": "Daniel",
-      "projects": [],
+      "projects": [
+        {
+          "id": 1,
+          "title": "Portfolio Website",
+          "author": "Michael",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "tasks": {
+            "toDo": ["Make banner"],
+            "inProgress": ["Finish project", "upload project"],
+            "complete": ["Deploy site"]
+          },
+          "isDeleted": false,
+          "isComplete": false
+        },
+        {
+          "id": 2,
+          "title": "Taskr",
+          "author": "Michael",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "tasks": {
+            "toDo": [],
+            "inProgress": [],
+            "complete": []
+          },
+          "isDeleted": false,
+          "isComplete": false
+        },
+        {
+          "id": 3,
+          "title": "Wordle Clone",
+          "author": "Michael",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "tasks": {
+            "toDo": [],
+            "inProgress": [],
+            "complete": []
+          },
+          "isDeleted": false,
+          "isComplete": false
+        },
+      ],
       "reports": [
         {
           "id": 1,
@@ -333,8 +376,9 @@ function App() {
           "inProgress": [],
           "complete": []
         },
-        "isDeleted": false
-      }
+        "isDeleted": false,
+        "isComplete": false
+      },
     )
     updateAll();
     console.log(userData.projects);

@@ -78,3 +78,16 @@ button {
     color: inherit;
     text-decoration: none;
 }
+
+/* Colours */
+.color--primary {
+    color: rgb(50, 200, 200);
+}
+
+.color--yellow {
+    color: rgb(246, 191, 90);
+}
+
+.color--green {
+    color: rgb(117, 191, 117);
+}

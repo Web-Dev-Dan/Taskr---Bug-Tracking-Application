@@ -34,3 +34,21 @@
 .projects__add-form .button-strong {
     margin-left: 10px;
 }
+
+.projects .empty-message-container {
+    margin-top: 50px;
+}
+
+.projects__content {
+    margin-top: 50px;
+}
+
+.projects__overview {
+    /* background-color: green; */
+}
+
+.projects__project-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
