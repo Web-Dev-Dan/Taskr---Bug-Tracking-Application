@@ -5,7 +5,7 @@ import EmptyNotification from '../../../../reusable/notifications/EmptyNotificat
 import ProjectBox from './ProjectBox';
 import './Projects.css';
 
-function Projects({ userData, createNewProject, openProjectPage }) {
+function Projects({ userData, createNewProject, openProjectPage, asideIsOpen }) {
     // Update 'Create a Project' Input Value:
     const [newProjectName, setNewProjectName] = useState('');
     function handleChange(e) {
@@ -32,7 +32,7 @@ function Projects({ userData, createNewProject, openProjectPage }) {
                 />
             </form>
             {/* MAIN CONTENT */}
-            {userData.projects.length > 0 && <div className="projects__content">
+            {userData.projects.length > 0 && <div className={asideIsOpen ? 'projects__content--large' : 'projects__content--small'}>
                 {/* Projects Overview */}
                 <div className="projects__overview">
 

@@ -39,8 +39,16 @@
     margin-top: 50px;
 }
 
-.projects__content {
+.projects__content--large {
+    width: calc(100vw - 400px);
     margin-top: 50px;
+    overflow-x: scroll;
+}
+
+.projects__content--small {
+    width: calc(100vw - 200px);
+    margin-top: 50px;
+    overflow-x: scroll;
 }
 
 .projects__overview {
@@ -49,6 +57,6 @@
 
 .projects__project-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
 }

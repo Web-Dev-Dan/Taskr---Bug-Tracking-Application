@@ -11,7 +11,7 @@ import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen }) {
     return (
         <main className="main">
             <MainNav
@@ -39,6 +39,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         createNewProject={createNewProject}
                         updateCurrentPageName={updateCurrentPageName}
                         openProjectPage={openProjectPage}
+                        asideIsOpen={asideIsOpen}
                     />
                 </div>}
                 {currentPageName === 'Reports' && <div>

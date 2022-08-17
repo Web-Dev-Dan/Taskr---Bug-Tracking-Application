@@ -9,6 +9,7 @@ function App() {
   // --- 📅 Dates 📅 ---
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const months_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   function getDay() {
     return days[new Date().getDay() - 1];
@@ -19,6 +20,9 @@ function App() {
   function getMonth() {
     return months[new Date().getMonth()];
   }
+  function getMonth_Short() {
+    return months_short[new Date().getMonth()];
+  }
   function getYear() {
     return new Date().getFullYear();
   }
@@ -28,6 +32,13 @@ function App() {
     const month = getMonth();
     const year = getYear();
     return `${day} ${date} ${month}, ${year}`;
+  }
+
+  function getShortDate() {
+    const date = getDate();
+    const month = getMonth_Short();
+    const year = getYear();
+    return `${date} ${month}, ${year}`;
   }
 
   // --- ⏰ Times ⏰ ---
@@ -101,7 +112,7 @@ function App() {
 
   function openProjects() {
     console.log('Projects Opened!');
-    setAsideIsOpen(true);
+    // setAsideIsOpen(true);
     updateCurrentPageName('Projects');
 
     setDashboardIsOpen(false);
@@ -216,9 +227,60 @@ function App() {
           "timeCreated": getCurrentTime(),
           "dateCreated": getFullDate(),
           "tasks": {
-            "toDo": ["Make banner"],
-            "inProgress": ["Finish project", "upload project"],
-            "complete": ["Deploy site"]
+            "toDo": [
+              {
+                "id": 1,
+                "title": "Create New Wireframe",
+                "author": "Daniel",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "tag": "UIDesign",
+                "timeCreated": getCurrentTime(),
+                "dateCreated": getFullDate(),
+                "dateCreatedShort": getShortDate(),
+                "comments": ["Hello", "Hello", "Hello", "Hello",],
+                "isDeleted": false
+              },
+              {
+                "id": 2,
+                "title": "Update Email Form",
+                "author": "Michael",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "tag": "Frontend",
+                "timeCreated": getCurrentTime(),
+                "dateCreated": getFullDate(),
+                "dateCreatedShort": getShortDate(),
+                "comments": ["Hello", "Hello"],
+                "isDeleted": false
+              }
+            ],
+            "inProgress": [
+              {
+                "id": 1,
+                "title": "Add New Projects",
+                "author": "Daniel",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "tag": "Frontend",
+                "timeCreated": getCurrentTime(),
+                "dateCreated": getFullDate(),
+                "dateCreatedShort": getShortDate(),
+                "comments": ["Hello", "Hello"],
+                "isDeleted": false
+              }
+            ],
+            "complete": [
+              {
+                "id": 1,
+                "title": "Publish Website",
+                "author": "Daniel",
+                "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "tag": "Frontend",
+                "timeCreated": getCurrentTime(),
+                "dateCreated": getFullDate(),
+                "dateCreatedShort": getShortDate(),
+                "comments": [],
+                "isDeleted": false
+              }
+            ]
           },
           "isDeleted": false,
           "isComplete": false
@@ -454,6 +516,7 @@ function App() {
             currentProjectId={currentProjectId}
             openProjects={() => openProjects()}
             updateInputValue={(e, target) => updateInputValue(e, target)}
+            asideIsOpen={asideIsOpen}
           />
 
         </div>
