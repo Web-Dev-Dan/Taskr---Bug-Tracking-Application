@@ -10,8 +10,9 @@ import ProjectPage from './pages/Projects/ProjectPage/ProjectPage';
 import Projects from './pages/Projects/Projects';
 import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
+import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage }) {
     return (
         <main className="main">
             <MainNav
@@ -84,6 +85,12 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         updateInputValue={updateInputValue}
                         asideIsOpen={asideIsOpen}
                         createNewTask={createNewTask}
+                        openTaskPage={openTaskPage}
+                    />
+                </div>}
+                {currentPageName === 'Task Page' && <div>
+                    <TaskPage
+
                     />
                 </div>}
             </div>

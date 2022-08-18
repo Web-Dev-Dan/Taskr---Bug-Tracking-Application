@@ -3,10 +3,10 @@ import { toHaveDescription } from '@testing-library/jest-dom/dist/matchers';
 import { computeHeadingLevel } from '@testing-library/react';
 import './ProjectTask.css';
 
-function ProjectTask({ id, title, author, content, tag, timeCreated, dateCreated, dateCreatedShort, comments, isDeleted }) {
+function ProjectTask({ id, title, author, content, tag, timeCreated, dateCreated, dateCreatedShort, comments, isDeleted, taskType, openTaskPageClicked }) {
     return (
         <div className="list-item">
-            <button className="list-item__button btn btn-transparent">
+            <button onClick={() => openTaskPageClicked(id, taskType)} className="list-item__button btn btn-transparent">
                 <div className="list-item__top">
                     <h4 className="list-item__title">{title === "" ? 'Task' : title}</h4>
                     <p className="list-item__info">{author}, {dateCreatedShort}</p>

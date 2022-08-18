@@ -5,7 +5,11 @@ import Projects from '../Projects';
 import './ProjectPage.css';
 import ProjectTask from './ProjectTask';
 
-function ProjectPage({ userData, currentProjectId, project, updateInputValue, asideIsOpen, createNewTask }) {
+function ProjectPage({ userData, currentProjectId, project, updateInputValue, asideIsOpen, createNewTask, openTaskPage }) {
+    function openTaskPageClicked(taskId, taskType) {
+        openTaskPage(taskId, taskType, currentProjectId);
+    }
+
     return (
         <div className="project-page">
             {/* Project Title Information */}
@@ -51,6 +55,8 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                             dateCreatedShort={task.dateCreatedShort}
                             comments={task.comments}
                             isDeleted={task.isDeleted}
+                            taskType='To Do'
+                            openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
                         />)}
 
                     </div>
@@ -89,6 +95,8 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                             dateCreatedShort={task.dateCreatedShort}
                             comments={task.comments}
                             isDeleted={task.isDeleted}
+                            taskType='In Progress'
+                            openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
                         />)}
 
                     </div>
@@ -127,6 +135,8 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                             dateCreatedShort={task.dateCreatedShort}
                             comments={task.comments}
                             isDeleted={task.isDeleted}
+                            taskType='Complete'
+                            openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
                         />)}
 
                     </div>
