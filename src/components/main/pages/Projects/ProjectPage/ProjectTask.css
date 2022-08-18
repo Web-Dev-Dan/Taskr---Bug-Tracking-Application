@@ -6,13 +6,16 @@
     margin-bottom: 20px;
     /* padding: 20px 10px; */
     border-top: 3px solid var(--color-gray-darkest);
+    min-width: 250px;
 }
 
 .list-item:last-child {
     margin-bottom: 0;
 }
 
-.list-item__button {}
+.list-item__button {
+    width: 100%;
+}
 
 .list-item__top {
     width: 100%;

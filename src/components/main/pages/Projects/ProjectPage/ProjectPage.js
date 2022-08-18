@@ -5,7 +5,7 @@ import Projects from '../Projects';
 import './ProjectPage.css';
 import ProjectTask from './ProjectTask';
 
-function ProjectPage({ userData, currentProjectId, project, updateInputValue }) {
+function ProjectPage({ userData, currentProjectId, project, updateInputValue, asideIsOpen, createNewTask }) {
     return (
         <div className="project-page">
             {/* Project Title Information */}
@@ -17,7 +17,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue }) 
             </div>
 
             {/* Project List Content */}
-            <div className="main__content">
+            <div className={`main__content ${asideIsOpen ? 'main__content--large' : 'main__content--small'}`}>
                 <div className="main__list">
                     {/* List Header */}
                     <div className="main__list-header">
@@ -28,7 +28,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue }) 
                         </div>
                     </div>
                     {/* List Button */}
-                    <button className="list__add-btn btn">
+                    <button onClick={() => createNewTask(currentProjectId, 'To Do')} className="list__add-btn btn">
                         <i className="list__add-btn--icon fa-solid fa-circle-plus"></i>
                         <p className="list__add-btn--text">Add Task</p>
                     </button>
@@ -66,7 +66,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue }) 
                         </div>
                     </div>
                     {/* List Button */}
-                    <button className="list__add-btn btn">
+                    <button onClick={() => createNewTask(currentProjectId, 'In Progress')} className="list__add-btn btn">
                         <i className="list__add-btn--icon fa-solid fa-circle-plus"></i>
                         <p className="list__add-btn--text">Add Task</p>
                     </button>
@@ -104,7 +104,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue }) 
                         </div>
                     </div>
                     {/* List Button */}
-                    <button className="list__add-btn btn">
+                    <button onClick={() => createNewTask(currentProjectId, 'Complete')} className="list__add-btn btn">
                         <i className="list__add-btn--icon fa-solid fa-circle-plus"></i>
                         <p className="list__add-btn--text">Add Task</p>
                     </button>

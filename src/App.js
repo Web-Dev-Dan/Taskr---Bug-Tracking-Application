@@ -486,6 +486,56 @@ function App() {
     console.log(userData.projects);
   }
 
+  // Create New Project Task:
+  function createNewTask(projectId, taskType) {
+    // console.log(`This is a '${taskType}' for project ID ${projectId}`);
+    userData.projects.filter(project => {
+      if (project.id === projectId) {
+        if (taskType === 'To Do') {
+          project.tasks.toDo.push({
+            "id": project.tasks.toDo.length + 1,
+            "title": "",
+            "author": userData.username,
+            "content": "",
+            "tag": "",
+            "timeCreated": getCurrentTime(),
+            "dateCreated": getFullDate(),
+            "dateCreatedShort": getShortDate(),
+            "comments": [],
+            "isDeleted": false
+          })
+        } else if (taskType === 'In Progress') {
+          project.tasks.inProgress.push({
+            "id": project.tasks.inProgress.length + 1,
+            "title": "",
+            "author": userData.username,
+            "content": "",
+            "tag": "",
+            "timeCreated": getCurrentTime(),
+            "dateCreated": getFullDate(),
+            "dateCreatedShort": getShortDate(),
+            "comments": [],
+            "isDeleted": false
+          });
+        } else if (taskType === 'Complete') {
+          project.tasks.complete.push({
+            "id": project.tasks.complete.length + 1,
+            "title": "",
+            "author": userData.username,
+            "content": "",
+            "tag": "",
+            "timeCreated": getCurrentTime(),
+            "dateCreated": getFullDate(),
+            "dateCreatedShort": getShortDate(),
+            "comments": [],
+            "isDeleted": false
+          });
+        }
+        updateAll();
+      }
+    })
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -517,6 +567,7 @@ function App() {
             openProjects={() => openProjects()}
             updateInputValue={(e, target) => updateInputValue(e, target)}
             asideIsOpen={asideIsOpen}
+            createNewTask={(projectId, taskType) => createNewTask(projectId, taskType)}
           />
 
         </div>

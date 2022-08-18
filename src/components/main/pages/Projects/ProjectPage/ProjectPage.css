@@ -41,6 +41,18 @@
     display: flex;
 }
 
+.main__content--large {
+    width: calc(100vw - 400px);
+    overflow-x: scroll;
+    display: flex;
+}
+
+.main__content--small {
+    width: calc(100vw - 200px);
+    overflow-x: scroll;
+    display: flex;
+}
+
 .main__list {
     /* background-color: yellow; */
     /* height: 100px; */
