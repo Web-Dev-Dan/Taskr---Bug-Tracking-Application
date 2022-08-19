@@ -1,0 +1,127 @@
+.comment-box {
+    background-color: transparent;
+    width: 100%;
+    min-height: 80px;
+    margin-top: 10px;
+    padding: 15px 20px 15px 30px;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+}
+
+.comment-box:hover {
+    background-color: var(--color-primary-light);
+    transform: translateX(-10px);
+}
+
+.comment-box__icon {
+    color: var(--color-primary);
+    font-size: 40px;
+    margin-right: 30px;
+    align-self: center;
+}
+
+.comment-box__content {
+    /* background-color: yellow; */
+    height: 100%;
+    padding-left: 20px;
+    border-left: 5px solid var(--color-primary);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.comment-box__content--top {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-box__content--top p:first-child {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.comment-box__content--top p:last-child {
+    font-size: 1.6rem;
+    font-weight: 100;
+}
+
+.comment-box__comment {
+    font-size: 1.8rem;
+    font-weight: 200;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* Button Container */
+.comment-box__button-container {
+    /* background-color: red; */
+    display: flex;
+}
+
+.comment-box__button {
+    width: 40px;
+    height: 40px;
+}
+
+.comment-box__button--icon {
+    font-size: 26px;
+    opacity: .5;
+    transition: .2s;
+}
+
+.comment-box__button-container:hover {
+    cursor: pointer;
+}
+
+.comment-box__button:hover .comment-box__button--icon {
+    transform: scale(120%);
+}
+
+.icon-checked {
+    opacity: 1;
+}
+
+/* ToDo Ticket */
+.ticket-container--primary .comment-box__icon,
+.ticket-container--primary .comment-box__button--icon {
+    color: var(--color-primary);
+}
+
+.ticket-container--primary .comment-box__button--icon .ticket-container--primary .comment-box__content {
+    border-left: 5px solid var(--color-primary);
+}
+
+.ticket-container--primary .comment-box:hover {
+    background-color: var(--color-primary-light);
+}
+
+/* InProgress Ticket */
+.ticket-container--yellow .comment-box__icon,
+.ticket-container--yellow .comment-box__button--icon {
+    color: var(--color-yellow);
+}
+
+.ticket-container--yellow .comment-box__content {
+    border-left: 5px solid var(--color-yellow);
+}
+
+.ticket-container--yellow .comment-box:hover {
+    background-color: var(--color-yellow-light);
+}
+
+/* Complete Ticket */
+.ticket-container--green .comment-box__icon,
+.ticket-container--green .comment-box__button--icon {
+    color: var(--color-complete);
+}
+
+.ticket-container--green .comment-box__content {
+    border-left: 5px solid var(--color-complete);
+}
+
+.ticket-container--green .comment-box:hover {
+    background-color: var(--color-complete-light);
+}

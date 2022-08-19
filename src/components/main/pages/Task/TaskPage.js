@@ -1,5 +1,7 @@
 
 import { useState, useEffect } from 'react';
+import EmptyNotification from '../../../../reusable/notifications/EmptyNotification/EmptyNotification';
+import TaskComment from './TaskComment';
 import './TaskPage.css';
 
 function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue }) {
@@ -20,7 +22,7 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
     // }
 
     const [currentProject, setCurrentProject] = useState('Title');
-    const [currentTask, setCurrentTask] = useState('Task');
+    const [currentTask, setCurrentTask] = useState({ "title": "Task", "comments": [] });
     useEffect(() => {
         userData.projects.filter(project => {
             if (project.id === currentProjectId) {
@@ -100,8 +102,22 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                 <p className="comments-container__header">Comments ({currentTask.comments ? currentTask.comments.length : 0})</p>
                 <div className="comments-container__comments">
                     {/* Show Comments: */}
-
+                    {currentTask.comments.length !== 0 && currentTask.comments.map(comment => <TaskComment
+                        key={comment.id}
+                        id={comment.id}
+                        author={comment.author}
+                        content={comment.content}
+                        dateCreated={comment.dateCreated}
+                        timeCreated={comment.timeCreated}
+                        isPriority={comment.isPriority}
+                        isLiked={comment.isLiked}
+                        isDeleted={comment.isDeleted}
+                    />)}
                     {/* No Comments: */}
+                    {currentTask.comments.length === 0 && <EmptyNotification
+                        icon='fa-solid fa-envelope-open'
+                        text='Looks like you have no comments!'
+                    />}
                 </div>
             </div>
         </div >

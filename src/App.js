@@ -242,7 +242,7 @@ function App() {
   const [userData, setUserData] = useState(
     {
       "username": "Daniel",
-      "projects": [/*
+      "projects": [
         // --- START OF PROJECTS ---
         {
           "id": 1,
@@ -261,7 +261,28 @@ function App() {
                 "timeCreated": getCurrentTime(),
                 "dateCreated": getFullDate(),
                 "dateCreatedShort": getShortDate(),
-                "comments": ["Hello", "Hello", "Hello", "Hello",],
+                "comments": [
+                  {
+                    "id": 1,
+                    "author": "Mike",
+                    "content": "This is some content to check the comment box!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": true,
+                    "isLiked": false,
+                    "isDeleted": false
+                  },
+                  {
+                    "id": 2,
+                    "author": "Dan",
+                    "content": "This is some content to check the comment box!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": true,
+                    "isDeleted": false
+                  },
+                ],
                 "isDeleted": false
               },
               {
@@ -273,7 +294,18 @@ function App() {
                 "timeCreated": getCurrentTime(),
                 "dateCreated": getFullDate(),
                 "dateCreatedShort": getShortDate(),
-                "comments": ["Hello", "Hello"],
+                "comments": [
+                  {
+                    "id": 1,
+                    "author": "Dan",
+                    "content": "This is some content to check the comment box!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  },
+                ],
                 "isDeleted": false
               }
             ],
@@ -287,7 +319,18 @@ function App() {
                 "timeCreated": getCurrentTime(),
                 "dateCreated": getFullDate(),
                 "dateCreatedShort": getShortDate(),
-                "comments": ["Hello", "Hello"],
+                "comments": [
+                  {
+                    "id": 1,
+                    "author": "Dan",
+                    "content": "This is some content to check the comment box!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": true,
+                    "isLiked": true,
+                    "isDeleted": false
+                  },
+                ],
                 "isDeleted": false
               }
             ],
@@ -301,7 +344,18 @@ function App() {
                 "timeCreated": getCurrentTime(),
                 "dateCreated": getFullDate(),
                 "dateCreatedShort": getShortDate(),
-                "comments": [],
+                "comments": [
+                  {
+                    "id": 1,
+                    "author": "Steve",
+                    "content": "This is some content to check the comment box!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  },
+                ],
                 "isDeleted": false
               }
             ]
@@ -336,7 +390,7 @@ function App() {
           },
           "isDeleted": false,
           "isComplete": false
-        },*/
+        },
         // --- END OF PROJECTS ---
       ],
       "reports": [
