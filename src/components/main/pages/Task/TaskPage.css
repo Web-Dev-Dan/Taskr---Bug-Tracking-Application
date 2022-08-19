@@ -158,7 +158,7 @@
 .ticket-container--primary .ticket-info__tag-input,
 .ticket-container--primary .ticket-info__icon,
 .ticket-container--primary .ticket-info__tag-icon {
-    color: var(--color-blue);
+    color: var(--color-update);
 }
 
 /* InProgress Ticket */
