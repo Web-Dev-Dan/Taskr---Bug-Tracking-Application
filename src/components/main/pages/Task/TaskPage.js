@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './TaskPage.css';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -15,12 +15,17 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType }
         typeStyling = 'ticket-container--green';
     }
 
+    // function updateCurrentProject(id) {
+    //     console.log(`THIS IS PROJECT ID ${id}`)
+    // }
+
     const [currentProject, setCurrentProject] = useState('Title');
     const [currentTask, setCurrentTask] = useState('Task');
     useEffect(() => {
         userData.projects.filter(project => {
             if (project.id === currentProjectId) {
                 setCurrentProject(project);
+                updateCurrentProject(currentProjectId);
                 console.log(project);
                 if (currentTaskType === 'To Do') {
                     project.tasks.toDo.filter(task => {

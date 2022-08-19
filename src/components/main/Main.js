@@ -12,7 +12,7 @@ import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked }) {
     return (
         <main className="main">
             <MainNav
@@ -20,6 +20,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                 updateCurrentPageName={updateCurrentPageName}
                 userData={userData}
                 openProjects={openProjects}
+                taskBackButtonClicked={taskBackButtonClicked}
             />
             <div className="main-content">
                 {currentPageName === 'Dashboard' && <div>
@@ -94,6 +95,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         currentProjectId={currentProjectId}
                         currentTaskId={currentTaskId}
                         currentTaskType={currentTaskType}
+                        updateCurrentProject={updateCurrentProject}
                     />
                 </div>}
             </div>
