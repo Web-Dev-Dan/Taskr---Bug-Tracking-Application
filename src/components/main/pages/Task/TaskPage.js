@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import './TaskPage.css';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -53,6 +53,25 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
         });
     }, []);
 
+    function handleTaskTitleChange(e) {
+        // console.log(e.target.value);
+        // console.log(currentTask);
+        updateTaskTitleValue(e, currentTask);
+    }
+
+    function handleTaskTagChange(e) {
+        // console.log(e.target.value);
+        // console.log(currentTask);
+        updateTaskTagValue(e, currentTask);
+    }
+
+    function handleTaskContentChange(e) {
+        // console.log(e.target.value);
+        // console.log(currentTask);
+        updateTaskContentValue(e, currentTask);
+    }
+
+
     return (
         <div className={`ticket-container ${typeStyling}`}>
             {/* Ticket Title Information */}
@@ -63,7 +82,7 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                         <i className="ticket-info__icon fa-solid fa-ticket"></i>
                         <p className="ticket-info__subtitle">Opened a task for <strong className="ticket-info__text--strong">{currentProject.title}</strong>.</p>
                     </div>
-                    <input onChange={() => console.log('Title changed...')} className="ticket-info__title" value={currentTask.title} placeholder="Add Ticket Name..." type="text" />
+                    <input onChange={(e) => handleTaskTitleChange(e)} className="ticket-info__title" value={currentTask.title} placeholder="Add Ticket Name..." type="text" />
                     {/* Author / Date / Time */}
                     <p className="ticket-info__date">Created by <strong className="ticket-info__text--strong">{currentTask.author}</strong> on {currentTask.dateCreated} at {currentTask.timeCreated}.</p>
                 </div>
@@ -71,11 +90,11 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
             {/* Tag */}
             < div className="ticket-info__tag-container" >
                 <i className="ticket-info__tag-icon fa-solid fa-hashtag"></i>
-                <input onChange={() => console.log('Tag changed...')} className="ticket-info__tag-input" value={currentTask.tag} placeholder="Add Tag..." type="text" />
+                <input onChange={(e) => handleTaskTagChange(e)} className="ticket-info__tag-input" value={currentTask.tag} placeholder="Add Tag..." type="text" />
             </div >
             {/* Description */}
             <div className="ticket__description-container">
-                <textarea onChange={() => console.log('Description changed...')} className="ticket__description" value={currentTask.content} placeholder="Add Description..." type="text" />
+                <textarea onChange={(e) => handleTaskContentChange(e)} className="ticket__description" value={currentTask.content} placeholder="Add Description..." type="text" />
             </div>
             <div className="comments-container">
                 <p className="comments-container__header">Comments ({currentTask.comments ? currentTask.comments.length : 0})</p>
