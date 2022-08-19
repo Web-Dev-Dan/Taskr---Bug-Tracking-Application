@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import EmptyNotification from '../../../../reusable/notifications/EmptyNotification/EmptyNotification';
 import TaskComment from './TaskComment';
 import './TaskPage.css';
+import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 
 function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue }) {
     console.log(userData)
@@ -118,6 +119,15 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                         icon='fa-solid fa-envelope-open'
                         text='Looks like you have no comments!'
                     />}
+                    {/* Add New Task Form */}
+                    <form className="task-page__add-task-form">
+                        <input className="add-task-form__input" placeholder="Add a Comment..."></input>
+                        <ButtonStrong
+                            iconClass='fa-solid fa-plus'
+                            text='Add Comment'
+                            handleClick={() => console.log('Add Task Button Clicked!')}
+                        />
+                    </form>
                 </div>
             </div>
         </div >

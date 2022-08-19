@@ -150,3 +150,32 @@
 .ticket-container .empty-message-container {
     margin-top: 30px;
 }
+
+
+/* Add New Task Form */
+.task-page__add-task-form {
+    width: 100%;
+    max-width: 600px;
+    margin-left: 50px;
+    margin: 40px 50px;
+    display: flex;
+    align-items: center;
+}
+
+.add-task-form__input {
+    background-color: white;
+    font-size: 2rem;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border-bottom: 2px solid var(--color-gray-dark);
+    transition: .5s;
+    flex: 1;
+}
+
+.add-task-form__input::placeholder {
+    font-weight: 300;
+}
+
+.projects__add-form .button-strong {
+    /* margin-left: 10px; */
+}
