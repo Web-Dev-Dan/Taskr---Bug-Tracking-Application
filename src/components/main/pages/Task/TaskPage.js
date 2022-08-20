@@ -5,7 +5,7 @@ import TaskComment from './TaskComment';
 import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -74,14 +74,22 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
         updateTaskContentValue(e, currentTask);
     }
 
+    // Toggle Priority Button (Comment)
     function togglePriorityButtonClicked(id) {
         // console.log(id);
         togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
 
+    // Toggle Like Button (Comment)
     function toggleLikeButtonClicked(id) {
         // console.log(id);
         toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id);
+    }
+
+    // Delete BUtton (Comment)
+    function deleteCommentButtonClicked(id) {
+        // console.log(id);
+        deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
 
 
@@ -125,6 +133,7 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                         isDeleted={comment.isDeleted}
                         togglePriorityButtonClicked={(id) => togglePriorityButtonClicked(id)}
                         toggleLikeButtonClicked={(id) => toggleLikeButtonClicked(id)}
+                        deleteCommentButtonClicked={(id) => deleteCommentButtonClicked(id)}
                     />)}
                     {/* No Comments: */}
                     {currentTask.comments.length === 0 && <EmptyNotification

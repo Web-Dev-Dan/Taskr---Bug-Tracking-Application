@@ -743,7 +743,53 @@ function App() {
             }
           })
         }
+      }
+    })
+    updateAll();
+  }
 
+
+  // Delete Button (Comment)
+  function deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id) {
+    userData.projects.filter(project => {
+      if (project.id === currentProjectId) {
+        if (currentTaskType === 'To Do') {
+          // console.log(project.tasks.toDo);
+          project.tasks.toDo.filter(task => {
+            if (task.id === currentTaskId) {
+              // console.log(task.comments);
+              task.comments.filter(comment => {
+                if (comment.id === id) {
+                  comment.isDeleted = true;
+                }
+              })
+            }
+          })
+        } else if (currentTaskType === 'In Progress') {
+          // console.log(project.tasks.inProgress);
+          project.tasks.inProgress.filter(task => {
+            if (task.id === currentTaskId) {
+              // console.log(task.comments);
+              task.comments.filter(comment => {
+                if (comment.id === id) {
+                  comment.isDeleted = true;
+                }
+              })
+            }
+          })
+        } else if (currentTaskType === 'Complete') {
+          // console.log(project.tasks.complete);
+          project.tasks.complete.filter(task => {
+            if (task.id === currentTaskId) {
+              // console.log(task.comments);
+              task.comments.filter(comment => {
+                if (comment.id === id) {
+                  comment.isDeleted = true;
+                }
+              })
+            }
+          })
+        }
       }
     })
     updateAll();
@@ -791,6 +837,7 @@ function App() {
             updateTaskContentValue={(e, target) => updateTaskContentValue(e, target)}
             togglePriorityButton={(currentProjectId, currentTaskType, currentTaskId, id) => togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id)}
             toggleLikeButton={(currentProjectId, currentTaskType, currentTaskId, id) => toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id)}
+            deleteCommentButton={(currentProjectId, currentTaskType, currentTaskId, id) => deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id)}
           />
         </div>
       </div>
