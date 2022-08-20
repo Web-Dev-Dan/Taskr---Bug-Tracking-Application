@@ -1,7 +1,7 @@
 
 import './TaskComment.css';
 
-function TaskComment({ id, author, content, dateCreated, timeCreated, isPriority, isLiked, isDeleted, togglePriorityButtonClicked }) {
+function TaskComment({ id, author, content, dateCreated, timeCreated, isPriority, isLiked, isDeleted, togglePriorityButtonClicked, toggleLikeButtonClicked }) {
     return (
         <div className="comment-box">
             <i className="comment-box__icon fa-solid fa-message"></i>
@@ -16,7 +16,7 @@ function TaskComment({ id, author, content, dateCreated, timeCreated, isPriority
                 <button onClick={() => togglePriorityButtonClicked(id)} className="comment-box__button btn-transparent">
                     <i className={`${isPriority && 'icon-checked'} comment-box__button--icon fa-solid fa-star`}></i>
                 </button>
-                <button className="comment-box__button btn-transparent">
+                <button onClick={() => toggleLikeButtonClicked(id)} className="comment-box__button btn-transparent">
                     <i className={`${isLiked && 'icon-checked'} comment-box__button--icon fa-solid fa-heart`}></i>
                 </button>
                 <button className="comment-box__button btn-transparent">

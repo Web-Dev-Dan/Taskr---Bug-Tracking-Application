@@ -5,7 +5,7 @@ import TaskComment from './TaskComment';
 import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -79,6 +79,11 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
         togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
 
+    function toggleLikeButtonClicked(id) {
+        // console.log(id);
+        toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id);
+    }
+
 
     return (
         <div className={`ticket-container ${typeStyling}`}>
@@ -119,6 +124,7 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                         isLiked={comment.isLiked}
                         isDeleted={comment.isDeleted}
                         togglePriorityButtonClicked={(id) => togglePriorityButtonClicked(id)}
+                        toggleLikeButtonClicked={(id) => toggleLikeButtonClicked(id)}
                     />)}
                     {/* No Comments: */}
                     {currentTask.comments.length === 0 && <EmptyNotification

@@ -655,6 +655,7 @@ function App() {
   }
 
 
+  // Toggle Priority Button (Comment)
   function togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id) {
     userData.projects.filter(project => {
       if (project.id === currentProjectId) {
@@ -691,6 +692,52 @@ function App() {
               task.comments.filter(comment => {
                 if (comment.id === id) {
                   comment.isPriority = !comment.isPriority;
+                }
+              })
+            }
+          })
+        }
+      }
+    })
+    updateAll();
+  }
+
+  // Toggle Like Button (Comment)
+  function toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id) {
+    userData.projects.filter(project => {
+      if (project.id === currentProjectId) {
+        if (currentTaskType === 'To Do') {
+          // console.log(project.tasks.toDo);
+          project.tasks.toDo.filter(task => {
+            if (task.id === currentTaskId) {
+              // console.log(task.comments);
+              task.comments.filter(comment => {
+                if (comment.id === id) {
+                  comment.isLiked = !comment.isLiked;
+                }
+              })
+            }
+          })
+        } else if (currentTaskType === 'In Progress') {
+          // console.log(project.tasks.inProgress);
+          project.tasks.inProgress.filter(task => {
+            if (task.id === currentTaskId) {
+              // console.log(task.comments);
+              task.comments.filter(comment => {
+                if (comment.id === id) {
+                  comment.isLiked = !comment.isLiked;
+                }
+              })
+            }
+          })
+        } else if (currentTaskType === 'Complete') {
+          // console.log(project.tasks.complete);
+          project.tasks.complete.filter(task => {
+            if (task.id === currentTaskId) {
+              // console.log(task.comments);
+              task.comments.filter(comment => {
+                if (comment.id === id) {
+                  comment.isLiked = !comment.isLiked;
                 }
               })
             }
@@ -743,6 +790,7 @@ function App() {
             updateTaskTagValue={(e, target) => updateTaskTagValue(e, target)}
             updateTaskContentValue={(e, target) => updateTaskContentValue(e, target)}
             togglePriorityButton={(currentProjectId, currentTaskType, currentTaskId, id) => togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id)}
+            toggleLikeButton={(currentProjectId, currentTaskType, currentTaskId, id) => toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id)}
           />
         </div>
       </div>
