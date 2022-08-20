@@ -12,7 +12,7 @@ import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton }) {
     return (
         <main className="main">
             <MainNav
@@ -99,6 +99,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         updateTaskTitleValue={updateTaskTitleValue}
                         updateTaskTagValue={updateTaskTagValue}
                         updateTaskContentValue={updateTaskContentValue}
+                        togglePriorityButton={togglePriorityButton}
                     />
                 </div>}
             </div>
