@@ -282,6 +282,16 @@ function App() {
                     "isLiked": true,
                     "isDeleted": false
                   },
+                  {
+                    "id": 3,
+                    "author": "Dan",
+                    "content": "This is some content to check the comment box!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  },
                 ],
                 "isDeleted": false
               },

@@ -4,6 +4,7 @@ import EmptyNotification from '../../../../reusable/notifications/EmptyNotificat
 import TaskComment from './TaskComment';
 import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
+import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
 
 function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton }) {
     console.log(userData)
@@ -17,10 +18,6 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
     } else if (currentTaskType === 'Complete') {
         typeStyling = 'ticket-container--green';
     }
-
-    // function updateCurrentProject(id) {
-    //     console.log(`THIS IS PROJECT ID ${id}`)
-    // }
 
     const [currentProject, setCurrentProject] = useState('Title');
     const [currentTask, setCurrentTask] = useState({ "title": "Task", "comments": [] });
@@ -57,41 +54,31 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
     }, []);
 
     function handleTaskTitleChange(e) {
-        // console.log(e.target.value);
-        // console.log(currentTask);
         updateTaskTitleValue(e, currentTask);
     }
 
     function handleTaskTagChange(e) {
-        // console.log(e.target.value);
-        // console.log(currentTask);
         updateTaskTagValue(e, currentTask);
     }
 
     function handleTaskContentChange(e) {
-        // console.log(e.target.value);
-        // console.log(currentTask);
         updateTaskContentValue(e, currentTask);
     }
 
     // Toggle Priority Button (Comment)
     function togglePriorityButtonClicked(id) {
-        // console.log(id);
         togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
 
     // Toggle Like Button (Comment)
     function toggleLikeButtonClicked(id) {
-        // console.log(id);
         toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
 
     // Delete BUtton (Comment)
     function deleteCommentButtonClicked(id) {
-        // console.log(id);
         deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
-
 
     return (
         <div className={`ticket-container ${typeStyling}`}>
@@ -118,28 +105,31 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                 <textarea onChange={(e) => handleTaskContentChange(e)} className="ticket__description" value={currentTask.content} placeholder="Add Description..." type="text" />
             </div>
             <div className="comments-container">
-                <p className="comments-container__header">Comments ({currentTask.comments ? currentTask.comments.length : 0})</p>
+                {/* <p className="comments-container__header">Comments ({currentTask.comments ? currentTask.comments.length : 0})</p> */}
+                <p className="comments-container__header">Comments ({
+                    [...currentTask.comments.filter(task => task.isDeleted === false)].length
+                })</p>
+
                 <div className="comments-container__comments">
                     {/* Show Comments: */}
-                    {currentTask.comments.length !== 0 && currentTask.comments.map(comment => <TaskComment
-                        key={comment.id}
-                        id={comment.id}
-                        author={comment.author}
-                        content={comment.content}
-                        dateCreated={comment.dateCreated}
-                        timeCreated={comment.timeCreated}
-                        isPriority={comment.isPriority}
-                        isLiked={comment.isLiked}
-                        isDeleted={comment.isDeleted}
-                        togglePriorityButtonClicked={(id) => togglePriorityButtonClicked(id)}
-                        toggleLikeButtonClicked={(id) => toggleLikeButtonClicked(id)}
-                        deleteCommentButtonClicked={(id) => deleteCommentButtonClicked(id)}
-                    />)}
-                    {/* No Comments: */}
-                    {currentTask.comments.length === 0 && <EmptyNotification
-                        icon='fa-solid fa-envelope-open'
-                        text='Looks like you have no comments!'
-                    />}
+                    {currentTask.comments.length !== 0 && currentTask.comments.map(comment => {
+                        if (comment.isDeleted === false) {
+                            return <TaskComment
+                                key={comment.id}
+                                id={comment.id}
+                                author={comment.author}
+                                content={comment.content}
+                                dateCreated={comment.dateCreated}
+                                timeCreated={comment.timeCreated}
+                                isPriority={comment.isPriority}
+                                isLiked={comment.isLiked}
+                                isDeleted={comment.isDeleted}
+                                togglePriorityButtonClicked={(id) => togglePriorityButtonClicked(id)}
+                                toggleLikeButtonClicked={(id) => toggleLikeButtonClicked(id)}
+                                deleteCommentButtonClicked={(id) => deleteCommentButtonClicked(id)}
+                            />
+                        }
+                    })}
                     {/* Add New Task Form */}
                     <form className="task-page__add-task-form">
                         <input className="add-task-form__input" placeholder="Add a Comment..."></input>
@@ -149,6 +139,16 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                             handleClick={() => console.log('Add Task Button Clicked!')}
                         />
                     </form>
+                    {/* No Comments: */}
+                    {[...currentTask.comments.filter(task => task.isDeleted === false)].length === 0 && <EmptyNotification
+                        icon='fa-solid fa-envelope-open'
+                        text='Looks like you have no comments!'
+                    />}
+
+                    {/* {currentTask.comments.length === 0 && <EmptyNotification
+                        icon='fa-solid fa-envelope-open'
+                        text='Looks like you have no comments!'
+                    />} */}
                 </div>
             </div>
         </div >
