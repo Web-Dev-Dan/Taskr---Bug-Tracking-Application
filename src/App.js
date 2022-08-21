@@ -574,6 +574,7 @@ function App() {
       },
     )
     updateAll();
+    openProjectPage(userData.projects.length);
     console.log(userData.projects);
   }
 
