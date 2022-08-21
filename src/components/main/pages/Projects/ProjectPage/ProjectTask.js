@@ -16,7 +16,10 @@ function ProjectTask({ id, title, author, content, tag, timeCreated, dateCreated
                     <p className="list-item__tag">#{tag === "" ? 'Project' : tag.toUpperCase()}</p>
                     <div className="list-item__comments-btn btn-transparent">
                         <i className="fa-solid fa-message"></i>
-                        <p>{comments.length}</p>
+                        {/* <p>{comments.length}</p> */}
+                        <p>{[...comments.filter(task => task.isDeleted === false)].length}</p>
+
+                        {/* [...currentTask.comments.filter(task => task.isDeleted === false)].length */}
                     </div>
                 </div>
             </button>
