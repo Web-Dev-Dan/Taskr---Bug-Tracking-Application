@@ -596,6 +596,7 @@ function App() {
             "comments": [],
             "isDeleted": false
           })
+          openTaskPage(project.tasks.toDo.length, 'To Do', projectId);
         } else if (taskType === 'In Progress') {
           project.tasks.inProgress.push({
             "id": project.tasks.inProgress.length + 1,
@@ -609,6 +610,7 @@ function App() {
             "comments": [],
             "isDeleted": false
           });
+          openTaskPage(project.tasks.inProgress.length, 'In Progress', projectId);
         } else if (taskType === 'Complete') {
           project.tasks.complete.push({
             "id": project.tasks.complete.length + 1,
@@ -622,6 +624,7 @@ function App() {
             "comments": [],
             "isDeleted": false
           });
+          openTaskPage(project.tasks.complete.length, 'Complete', projectId);
         }
         updateAll();
       }
