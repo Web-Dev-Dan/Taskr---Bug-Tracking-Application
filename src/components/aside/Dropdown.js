@@ -28,10 +28,14 @@ function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewPr
 
     return (
         <div className={dropdownContentIsShown ? "dropdown-selected" : "dropdown"}>
-            <button onClick={() => toggleDropdown()} className="dropdown-btn btn-transparent">
-                <i className={`dropdown-btn__icon ${icon}`}></i>
-                {textIsShown && <h3 className="dropdown-btn__title">{title}</h3>}
-                {dropdownContentIsShown ? <i className="dropdown-btn__icon--small fa-solid fa-caret-up"></i> : <i className="dropdown-btn__icon--small fa-solid fa-caret-down"></i>}
+            <button onClick={() => updateCurrentPageName('Projects')} className="dropdown-btn btn-transparent">
+                <div className="dropdown__left">
+                    <i className={`dropdown-btn__icon ${icon}`}></i>
+                    {textIsShown && <h3 className="dropdown-btn__title">{title}</h3>}
+                </div>
+                <button onClick={() => toggleDropdown()} className="dropdown-btn--dropdown btn-transparent">
+                    {dropdownContentIsShown ? <i className="dropdown-btn__icon--small fa-solid fa-caret-up"></i> : <i className="dropdown-btn__icon--small fa-solid fa-caret-down"></i>}
+                </button>
             </button>
             {dropdownContentIsShown && <div className="dropdown-content">
                 <form className="dropdown-content__input-form">

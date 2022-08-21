@@ -18,8 +18,6 @@ function ProjectTask({ id, title, author, content, tag, timeCreated, dateCreated
                         <i className="fa-solid fa-message"></i>
                         {/* <p>{comments.length}</p> */}
                         <p>{[...comments.filter(task => task.isDeleted === false)].length}</p>
-
-                        {/* [...currentTask.comments.filter(task => task.isDeleted === false)].length */}
                     </div>
                 </div>
             </button>

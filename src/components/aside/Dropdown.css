@@ -22,12 +22,35 @@
     margin-right: 10px;
 }
 
+.dropdown-btn i:last-child {
+    font-size: 1.8rem;
+    margin-right: 0;
+}
+
+.dropdown__left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
 .dropdown-btn__icon {
     transition: .2s;
 }
 
 .dropdown-btn__title {
     font-size: 2rem;
+}
+
+.dropdown-btn--dropdown {
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-btn--dropdown i {
+    margin: 0;
 }
 
 .dropdown-btn__icon--small {
