@@ -6,7 +6,7 @@ import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -138,7 +138,7 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                     })}
                     {/* Add New Task Form */}
                     <form className="task-page__add-task-form">
-                        <input className="add-task-form__input" placeholder="Add a Comment..."></input>
+                        <input onChange={(e) => updateCommentInputValue(e)} className="add-task-form__input" value={commentInputValue} placeholder="Add a Comment..."></input>
                         <ButtonStrong
                             iconClass='fa-solid fa-plus'
                             text='Add Comment'

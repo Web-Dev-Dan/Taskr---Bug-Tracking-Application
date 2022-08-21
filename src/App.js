@@ -7,12 +7,12 @@ import IconButton from './reusable/buttons/IconButton/IconButton';
 
 function App() {
   // --- 📅 Dates 📅 ---
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const months_short = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
   function getDay() {
-    return days[new Date().getDay() - 1];
+    return days[new Date().getDay()];
   }
   function getDate() {
     return new Date().getDate();
@@ -244,6 +244,7 @@ function App() {
       "username": "Daniel",
       "projects": [
         // --- START OF PROJECTS ---
+        /*
         {
           "id": 1,
           "title": "Portfolio Website",
@@ -401,6 +402,7 @@ function App() {
           "isDeleted": false,
           "isComplete": false
         },
+        */
         // --- END OF PROJECTS ---
       ],
       "reports": [
@@ -805,71 +807,79 @@ function App() {
   }
 
   // Create New Comment
+  const [commentInputValue, setCommentInputValue] = useState('');
+  function updateCommentInputValue(e) {
+    setCommentInputValue(e.target.value);
+    updateAll();
+  }
   function createNewComment(currentProjectId, currentTaskId, currentTaskType) {
     console.log()
-    userData.projects.filter(project => {
-      if (project.id === currentProjectId) {
-        if (currentTaskType === 'To Do') {
-          // console.log(project.tasks.toDo);
-          project.tasks.toDo.filter(task => {
-            if (task.id === currentTaskId) {
-              console.log(task);
-              task.comments.push(
-                {
-                  "id": task.comments.length + 1,
-                  "author": "Bob",
-                  "content": "New comment!",
-                  "dateCreated": getFullDate(),
-                  "timeCreated": getCurrentTime(),
-                  "isPriority": false,
-                  "isLiked": false,
-                  "isDeleted": false
-                }
-              );
-            }
-          })
-        } else if (currentTaskType === 'In Progress') {
-          // console.log(project.tasks.inProgress);
-          project.tasks.inProgress.filter(task => {
-            if (task.id === currentTaskId) {
-              console.log(task);
-              task.comments.push(
-                {
-                  "id": task.comments.length + 1,
-                  "author": "Bob",
-                  "content": "New comment!",
-                  "dateCreated": getFullDate(),
-                  "timeCreated": getCurrentTime(),
-                  "isPriority": false,
-                  "isLiked": false,
-                  "isDeleted": false
-                }
-              );
-            }
-          })
-        } else if (currentTaskType === 'Complete') {
-          // console.log(project.tasks.complete);
-          project.tasks.complete.filter(task => {
-            if (task.id === currentTaskId) {
-              console.log(task);
-              task.comments.push(
-                {
-                  "id": task.comments.length + 1,
-                  "author": "Bob",
-                  "content": "New comment!",
-                  "dateCreated": getFullDate(),
-                  "timeCreated": getCurrentTime(),
-                  "isPriority": false,
-                  "isLiked": false,
-                  "isDeleted": false
-                }
-              );
-            }
-          })
+    if (commentInputValue !== '') {
+      userData.projects.filter(project => {
+        if (project.id === currentProjectId) {
+          if (currentTaskType === 'To Do') {
+            // console.log(project.tasks.toDo);
+            project.tasks.toDo.filter(task => {
+              if (task.id === currentTaskId) {
+                console.log(task);
+                task.comments.push(
+                  {
+                    "id": task.comments.length + 1,
+                    "author": userData.username,
+                    "content": commentInputValue,
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  }
+                );
+              }
+            })
+          } else if (currentTaskType === 'In Progress') {
+            // console.log(project.tasks.inProgress);
+            project.tasks.inProgress.filter(task => {
+              if (task.id === currentTaskId) {
+                console.log(task);
+                task.comments.push(
+                  {
+                    "id": task.comments.length + 1,
+                    "author": userData.username,
+                    "content": commentInputValue,
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  }
+                );
+              }
+            })
+          } else if (currentTaskType === 'Complete') {
+            // console.log(project.tasks.complete);
+            project.tasks.complete.filter(task => {
+              if (task.id === currentTaskId) {
+                console.log(task);
+                task.comments.push(
+                  {
+                    "id": task.comments.length + 1,
+                    "author": userData.username,
+                    "content": commentInputValue,
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  }
+                );
+              }
+            })
+          }
         }
-      }
-    })
-    updateAll();
+      })
+      setCommentInputValue('');
+      updateAll();
+    }
   }
 
   return (
@@ -916,6 +926,8 @@ function App() {
             toggleLikeButton={(currentProjectId, currentTaskType, currentTaskId, id) => toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id)}
             deleteCommentButton={(currentProjectId, currentTaskType, currentTaskId, id) => deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id)}
             createNewComment={(currentProjectId, currentTaskId, currentTaskType) => createNewComment(currentProjectId, currentTaskId, currentTaskType)}
+            updateCommentInputValue={(e) => updateCommentInputValue(e)}
+            commentInputValue={commentInputValue}
           />
         </div>
       </div>

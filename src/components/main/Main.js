@@ -12,7 +12,7 @@ import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue }) {
     return (
         <main className="main">
             <MainNav
@@ -103,6 +103,8 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         toggleLikeButton={toggleLikeButton}
                         deleteCommentButton={deleteCommentButton}
                         createNewComment={createNewComment}
+                        updateCommentInputValue={updateCommentInputValue}
+                        commentInputValue={commentInputValue}
                     />
                 </div>}
             </div>
