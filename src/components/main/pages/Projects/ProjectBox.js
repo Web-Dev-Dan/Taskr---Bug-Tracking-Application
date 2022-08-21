@@ -16,15 +16,15 @@ function ProjectBox({ id, title, author, timeCreated, dateCreated, toDo, inProgr
             <div className="project-box__summary">
                 <div className="project-box__summary-inner color--primary">
                     <i className="project-box__summary--icon fa-solid fa-layer-group"></i>
-                    <p className="project-box__summary--text">{toDo.length}</p>
+                    <p className="project-box__summary--text">{toDo.filter(task => task.isDeleted === false).length}</p>
                 </div>
                 <div className="project-box__summary-inner color--yellow">
                     <i className="project-box__summary--icon fa-solid fa-trowel-bricks"></i>
-                    <p className="project-box__summary--text">{inProgress.length}</p>
+                    <p className="project-box__summary--text">{inProgress.filter(task => task.isDeleted === false).length}</p>
                 </div>
                 <div className="project-box__summary-inner color--green">
                     <i className="project-box__summary--icon fa-solid fa-fire"></i>
-                    <p className="project-box__summary--text">{complete.length}</p>
+                    <p className="project-box__summary--text">{complete.filter(task => task.isDeleted === false).length}</p>
                 </div>
             </div>
         </button>

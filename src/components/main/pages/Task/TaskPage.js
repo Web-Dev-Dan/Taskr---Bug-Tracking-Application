@@ -6,7 +6,7 @@ import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteTaskButton }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -86,6 +86,24 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
         createNewComment(currentProjectId, currentTaskId, currentTaskType)
     }
 
+    // Delete Task
+    const [deleteButtonIsOpen, setDeleteButtonIsOpen] = useState(false);
+    function deleteTaskButtonClicked(currentProjectId, currentTaskId, currentTaskType) {
+        setDeleteButtonIsOpen(true);
+        setTimeout(() => {
+            setDeleteButtonIsOpen(false);
+        }, 3000);
+    }
+
+    function closeDeleteOptions() {
+        setDeleteButtonIsOpen(false);
+    }
+
+    function deleteTaskCheckButton(currentProjectId, currentTaskId, currentTaskType) {
+        setDeleteButtonIsOpen(false);
+        deleteTaskButton(currentProjectId, currentTaskId, currentTaskType);
+    }
+
     return (
         <div className={`ticket-container ${typeStyling}`}>
             {/* Ticket Title Information */}
@@ -96,7 +114,24 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                         <i className="ticket-info__icon fa-solid fa-ticket"></i>
                         <p className="ticket-info__subtitle">Opened a task for <strong className="ticket-info__text--strong">{currentProject.title}</strong>.</p>
                     </div>
-                    <input onChange={(e) => handleTaskTitleChange(e)} className="ticket-info__title" value={currentTask.title} placeholder="Add Ticket Name..." type="text" />
+                    <div className="main__head-info--top">
+                        <input onChange={(e) => handleTaskTitleChange(e)} className="ticket-info__title" value={currentTask.title} placeholder="Add Ticket Name..." type="text" />
+                        {!deleteButtonIsOpen && <button onClick={() => deleteTaskButtonClicked(currentProjectId, currentTaskId, currentTaskType)} className="button--delete btn-transparent">
+                            <i className="fa-solid fa-trash-can"></i>
+                        </button>}
+                        {deleteButtonIsOpen && <div className="delete__options-container">
+                            <div className="options-container__bar--outer">
+                                <div className="options-container__bar--inner"></div>
+                            </div>
+                            <button onClick={() => deleteTaskCheckButton(currentProjectId, currentTaskId, currentTaskType)} className="options-container__button btn-transparent">
+                                <i className="options-container__button--delete fa-solid fa-check"></i>
+                            </button>
+                            <button onClick={() => closeDeleteOptions()} className="options-container__button btn-transparent">
+                                <i className="options-container__button--close fa-solid fa-xmark"></i>
+                            </button>
+                        </div>}
+                    </div>
+                    {/* <input onChange={(e) => handleTaskTitleChange(e)} className="ticket-info__title" value={currentTask.title} placeholder="Add Ticket Name..." type="text" /> */}
                     {/* Author / Date / Time */}
                     <p className="ticket-info__date">Created by <strong className="ticket-info__text--strong">{currentTask.author}</strong> on {currentTask.dateCreated} at {currentTask.timeCreated}.</p>
                 </div>

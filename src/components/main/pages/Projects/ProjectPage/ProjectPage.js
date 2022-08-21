@@ -72,11 +72,32 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                     {/* List */}
                     <div className="list list--to-do">
                         {/* List Items */}
-                        {project.tasks.toDo.length === 0 && <EmptyNotification
+                        {[...project.tasks.toDo.filter(task => task.isDeleted === false)].length === 0 && <EmptyNotification
                             icon='fa-solid fa-box-open'
                             text='Looks like this list is empty!'
                         />}
-                        {project.tasks.toDo.length > 0 && project.tasks.toDo.map(task => <ProjectTask
+                        {/* {project.tasks.toDo.length === 0 && <EmptyNotification
+                            icon='fa-solid fa-box-open'
+                            text='Looks like this list is empty!'
+                        />} */}
+                        {[...project.tasks.toDo.filter(task => task.isDeleted === false)].map(task => {
+                            return <ProjectTask
+                                key={task.id}
+                                id={task.id}
+                                title={task.title}
+                                author={task.author}
+                                content={task.content}
+                                tag={task.tag}
+                                timeCreated={task.timeCreated}
+                                dateCreated={task.dateCreated}
+                                dateCreatedShort={task.dateCreatedShort}
+                                comments={task.comments}
+                                isDeleted={task.isDeleted}
+                                taskType='To Do'
+                                openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
+                            />
+                        })}
+                        {/* {project.tasks.toDo.length > 0 && project.tasks.toDo.map(task => <ProjectTask
                             key={task.id}
                             id={task.id}
                             title={task.title}
@@ -90,7 +111,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                             isDeleted={task.isDeleted}
                             taskType='To Do'
                             openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
-                        />)}
+                        />)} */}
 
                     </div>
                 </div>
@@ -112,11 +133,32 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                     {/* List */}
                     <div className="list list--in-progress">
                         {/* List Items */}
-                        {project.tasks.inProgress.length === 0 && <EmptyNotification
+                        {[...project.tasks.inProgress.filter(task => task.isDeleted === false)].length === 0 && <EmptyNotification
                             icon='fa-solid fa-box-open'
                             text='Looks like this list is empty!'
                         />}
-                        {project.tasks.inProgress.length > 0 && project.tasks.inProgress.map(task => <ProjectTask
+                        {/* {project.tasks.inProgress.length === 0 && <EmptyNotification
+                            icon='fa-solid fa-box-open'
+                            text='Looks like this list is empty!'
+                        />} */}
+                        {[...project.tasks.inProgress.filter(task => task.isDeleted === false)].map(task => {
+                            return <ProjectTask
+                                key={task.id}
+                                id={task.id}
+                                title={task.title}
+                                author={task.author}
+                                content={task.content}
+                                tag={task.tag}
+                                timeCreated={task.timeCreated}
+                                dateCreated={task.dateCreated}
+                                dateCreatedShort={task.dateCreatedShort}
+                                comments={task.comments}
+                                isDeleted={task.isDeleted}
+                                taskType='In Progress'
+                                openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
+                            />
+                        })}
+                        {/* {project.tasks.inProgress.length > 0 && project.tasks.inProgress.map(task => <ProjectTask
                             key={task.id}
                             id={task.id}
                             title={task.title}
@@ -130,7 +172,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                             isDeleted={task.isDeleted}
                             taskType='In Progress'
                             openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
-                        />)}
+                        />)} */}
 
                     </div>
                 </div>
@@ -152,11 +194,32 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                     {/* List */}
                     <div className="list list--complete">
                         {/* List Items */}
-                        {project.tasks.complete.length === 0 && <EmptyNotification
+                        {[...project.tasks.complete.filter(task => task.isDeleted === false)].length === 0 && <EmptyNotification
                             icon='fa-solid fa-box-open'
                             text='Looks like this list is empty!'
                         />}
-                        {project.tasks.complete.length > 0 && project.tasks.complete.map(task => <ProjectTask
+                        {/* {project.tasks.complete.length === 0 && <EmptyNotification
+                            icon='fa-solid fa-box-open'
+                            text='Looks like this list is empty!'
+                        />} */}
+                        {[...project.tasks.complete.filter(task => task.isDeleted === false)].map(task => {
+                            return <ProjectTask
+                                key={task.id}
+                                id={task.id}
+                                title={task.title}
+                                author={task.author}
+                                content={task.content}
+                                tag={task.tag}
+                                timeCreated={task.timeCreated}
+                                dateCreated={task.dateCreated}
+                                dateCreatedShort={task.dateCreatedShort}
+                                comments={task.comments}
+                                isDeleted={task.isDeleted}
+                                taskType='Complete'
+                                openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
+                            />
+                        })}
+                        {/* {project.tasks.complete.length > 0 && project.tasks.complete.map(task => <ProjectTask
                             key={task.id}
                             id={task.id}
                             title={task.title}
@@ -170,7 +233,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                             isDeleted={task.isDeleted}
                             taskType='Complete'
                             openTaskPageClicked={(taskId, taskType) => openTaskPageClicked(taskId, taskType)}
-                        />)}
+                        />)} */}
 
                     </div>
                 </div>

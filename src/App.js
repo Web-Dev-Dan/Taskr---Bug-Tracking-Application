@@ -896,6 +896,39 @@ function App() {
     setCurrentPageName('Projects');
   }
 
+  function deleteTaskButton(currentProjectId, currentTaskId, currentTaskType) {
+    // console.log('Task deleted')
+    userData.projects.filter(project => {
+      if (project.id === currentProjectId) {
+        // console.log(project)
+        if (currentTaskType === 'To Do') {
+          project.tasks.toDo.filter(task => {
+            if (task.id === currentTaskId) {
+              task.isDeleted = true;
+              console.log(task)
+            }
+          })
+        } else if (currentTaskType === 'In Progress') {
+          project.tasks.inProgress.filter(task => {
+            if (task.id === currentTaskId) {
+              task.isDeleted = true;
+              console.log(task)
+            }
+          })
+        } else if (currentTaskType === 'Complete') {
+          project.tasks.complete.filter(task => {
+            if (task.id === currentTaskId) {
+              task.isDeleted = true;
+              console.log(task)
+            }
+          })
+        }
+      }
+    })
+    updateAll();
+    setCurrentPageName('Project Page');
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -943,6 +976,7 @@ function App() {
             updateCommentInputValue={(e) => updateCommentInputValue(e)}
             commentInputValue={commentInputValue}
             deleteProjectButton={(currentProjectId) => deleteProjectButton(currentProjectId)}
+            deleteTaskButton={(currentProjectId, currentTaskId, currentTaskType) => deleteTaskButton(currentProjectId, currentTaskId, currentTaskType)}
           />
         </div>
       </div>

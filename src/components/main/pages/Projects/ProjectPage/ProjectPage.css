@@ -11,6 +11,8 @@
 
 .main__head-info {}
 
+/* ---------- */
+
 .main__head-info--top {
     display: flex;
     align-items: center;
@@ -44,6 +46,7 @@
 .delete__options-container {
     height: 50px;
     width: 110px;
+    display: flex;
     position: relative;
 }
 
