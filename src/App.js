@@ -886,6 +886,14 @@ function App() {
 
   function deleteProjectButton(currentProjectId) {
     console.log(currentProjectId)
+    userData.projects.filter(project => {
+      if (project.id === currentProjectId) {
+        project.isDeleted = true;
+        console.log(project);
+      }
+    })
+    updateAll();
+    setCurrentPageName('Projects');
   }
 
   return (

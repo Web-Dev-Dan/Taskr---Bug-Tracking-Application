@@ -39,7 +39,7 @@ function Projects({ userData, createNewProject, openProjectPage, asideIsOpen }) 
                 </div>
                 {/* Projects List */}
                 <div className="projects__project-list">
-                    {userData.projects.map(project => {
+                    {[...userData.projects.filter(project => project.isDeleted === false)].map(project => {
                         return <ProjectBox
                             key={project.id}
                             id={project.id}
@@ -55,13 +55,33 @@ function Projects({ userData, createNewProject, openProjectPage, asideIsOpen }) 
                             openProjectPage={openProjectPage}
                         />
                     })}
+                    {/* {userData.projects.map(project => {
+                        return <ProjectBox
+                            key={project.id}
+                            id={project.id}
+                            title={project.title}
+                            author={project.author}
+                            timeCreated={project.timeCreated}
+                            dateCreated={project.dateCreated}
+                            toDo={project.tasks.toDo}
+                            inProgress={project.tasks.inProgress}
+                            complete={project.tasks.complete}
+                            isDeleted={project.isDeleted}
+                            isComplete={project.isComplete}
+                            openProjectPage={openProjectPage}
+                        />
+                    })} */}
                 </div>
             </div>}
             {/* No Projects */}
-            {userData.projects.length === 0 && <EmptyNotification
+            {[...userData.projects.filter(project => project.isDeleted === false)].length === 0 && <EmptyNotification
                 icon='fa-solid fa-box-open'
                 text='Looks like you have no projects!'
             />}
+            {/* {userData.projects.length === 0 && <EmptyNotification
+                icon='fa-solid fa-box-open'
+                text='Looks like you have no projects!'
+            />} */}
         </div>
     )
 }
