@@ -61,7 +61,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                         <i className="main__list-header--icon fa-solid fa-layer-group color--primary"></i>
                         <div className="main__list-header--text">
                             <h3 className="list-header__title">To Do</h3>
-                            <p className="list-header__subtitle">{project.tasks.toDo.length} {project.tasks.toDo.length === 1 ? 'task' : 'tasks'} remaining</p>
+                            <p className="list-header__subtitle">{project.tasks.toDo.filter(task => task.isDeleted === false).length} {project.tasks.toDo.filter(task => task.isDeleted === false).length === 1 ? 'task' : 'tasks'} remaining</p>
                         </div>
                     </div>
                     {/* List Button */}
@@ -122,7 +122,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                         <i className="main__list-header--icon fa-solid fa-trowel-bricks color--yellow"></i>
                         <div className="main__list-header--text">
                             <h3 className="list-header__title">In Progress</h3>
-                            <p className="list-header__subtitle">{project.tasks.inProgress.length} {project.tasks.inProgress.length === 1 ? 'task' : 'tasks'} remaining</p>
+                            <p className="list-header__subtitle">{project.tasks.inProgress.filter(task => task.isDeleted === false).length} {project.tasks.inProgress.filter(task => task.isDeleted === false).length === 1 ? 'task' : 'tasks'} remaining</p>
                         </div>
                     </div>
                     {/* List Button */}
@@ -183,7 +183,7 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
                         <i className="main__list-header--icon fa-solid fa-fire color--green"></i>
                         <div className="main__list-header--text">
                             <h3 className="list-header__title">Complete</h3>
-                            <p className="list-header__subtitle">{project.tasks.complete.length} {project.tasks.complete.length === 1 ? 'task' : 'tasks'} remaining</p>
+                            <p className="list-header__subtitle">{project.tasks.complete.filter(task => task.isDeleted === false).length} {project.tasks.complete.filter(task => task.isDeleted === false).length === 1 ? 'task' : 'tasks'} remaining</p>
                         </div>
                     </div>
                     {/* List Button */}
