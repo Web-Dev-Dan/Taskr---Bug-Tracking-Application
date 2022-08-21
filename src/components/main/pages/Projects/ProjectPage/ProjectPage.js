@@ -5,9 +5,26 @@ import Projects from '../Projects';
 import './ProjectPage.css';
 import ProjectTask from './ProjectTask';
 
-function ProjectPage({ userData, currentProjectId, project, updateInputValue, asideIsOpen, createNewTask, openTaskPage }) {
+function ProjectPage({ userData, currentProjectId, project, updateInputValue, asideIsOpen, createNewTask, openTaskPage, deleteProjectButton }) {
     function openTaskPageClicked(taskId, taskType) {
         openTaskPage(taskId, taskType, currentProjectId);
+    }
+
+    const [deleteButtonIsOpen, setDeleteButtonIsOpen] = useState(false);
+    function deleteProjectButtonClicked(currentProjectId) {
+        setDeleteButtonIsOpen(true);
+        setTimeout(() => {
+            setDeleteButtonIsOpen(false);
+        }, 3000);
+    }
+
+    function closeDeleteOptions() {
+        setDeleteButtonIsOpen(false);
+    }
+
+    function deleteProjectCheckButton(currentProjectId) {
+        setDeleteButtonIsOpen(false);
+        deleteProjectButton(currentProjectId);
     }
 
     return (
@@ -15,7 +32,23 @@ function ProjectPage({ userData, currentProjectId, project, updateInputValue, as
             {/* Project Title Information */}
             <div className="main__head">
                 <div className="main__head-info">
-                    <input onChange={(e, target) => updateInputValue(e, project)} className="head-info__title" value={project.title} placeholder="Add Project Name..." type="text" />
+                    <div className="main__head-info--top">
+                        <input onChange={(e, target) => updateInputValue(e, project)} className="head-info__title" value={project.title} placeholder="Add Project Name..." type="text" />
+                        {!deleteButtonIsOpen && <button onClick={() => deleteProjectButtonClicked(currentProjectId)} className="button--delete btn-transparent">
+                            <i className="fa-solid fa-trash-can"></i>
+                        </button>}
+                        {deleteButtonIsOpen && <div className="delete__options-container">
+                            <div className="options-container__bar--outer">
+                                <div className="options-container__bar--inner"></div>
+                            </div>
+                            <button onClick={() => deleteProjectCheckButton(currentProjectId)} className="options-container__button btn-transparent">
+                                <i className="options-container__button--delete fa-solid fa-check"></i>
+                            </button>
+                            <button onClick={() => closeDeleteOptions()} className="options-container__button btn-transparent">
+                                <i className="options-container__button--close fa-solid fa-xmark"></i>
+                            </button>
+                        </div>}
+                    </div>
                     <p className="head-info__date">Created on {project.dateCreated} at {project.timeCreated}.</p>
                 </div>
             </div>

@@ -244,7 +244,6 @@ function App() {
       "username": "Daniel",
       "projects": [
         // --- START OF PROJECTS ---
-        /*
         {
           "id": 1,
           "title": "Portfolio Website",
@@ -402,7 +401,6 @@ function App() {
           "isDeleted": false,
           "isComplete": false
         },
-        */
         // --- END OF PROJECTS ---
       ],
       "reports": [
@@ -886,6 +884,10 @@ function App() {
     }
   }
 
+  function deleteProjectButton(currentProjectId) {
+    console.log(currentProjectId)
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -932,6 +934,7 @@ function App() {
             createNewComment={(currentProjectId, currentTaskId, currentTaskType) => createNewComment(currentProjectId, currentTaskId, currentTaskType)}
             updateCommentInputValue={(e) => updateCommentInputValue(e)}
             commentInputValue={commentInputValue}
+            deleteProjectButton={(currentProjectId) => deleteProjectButton(currentProjectId)}
           />
         </div>
       </div>

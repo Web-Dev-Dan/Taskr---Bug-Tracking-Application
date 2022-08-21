@@ -11,11 +11,118 @@
 
 .main__head-info {}
 
+.main__head-info--top {
+    display: flex;
+    align-items: center;
+}
+
+.main__head-info--top .button--delete {
+    background-color: var(--color-dropdown-hover);
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+.main__head-info--top .button--delete i {
+    color: var(--color-gray-darkest);
+    font-size: 20px;
+    transition: .2s;
+}
+
+.main__head-info--top .button--delete:hover {
+    background-color: transparent;
+}
+
+.main__head-info--top .button--delete:hover i {
+    color: var(--color-warning);
+    font-size: 28px;
+}
+
+.delete__options-container {
+    height: 50px;
+    width: 110px;
+    position: relative;
+}
+
+.options-container__button {
+    background-color: var(--color-dropdown-hover);
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+}
+
+.options-container__button:last-child {
+    margin-left: 10px;
+}
+
+.options-container__button i {
+    color: var(--color-gray-darkest);
+    font-size: 20px;
+    transition: .2s;
+}
+
+.options-container__button:hover {
+    background-color: transparent;
+}
+
+.options-container__button:hover i {
+    font-size: 28px;
+}
+
+.options-container__button:hover .options-container__button--close {
+    color: black;
+}
+
+.options-container__button:hover .options-container__button--delete {
+    color: var(--color-warning);
+}
+
+.options-container__bar--outer {
+    /* background-color: red; */
+    height: 10px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    transition: linear;
+}
+
+.options-container__bar--inner {
+    background-color: var(--color-warning);
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    float: right;
+    animation-name: timeOutBar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes timeOutBar {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
+    }
+}
+
+/* ----- */
+
 .head-info__title {
     font-family: var(--font-primary);
     font-size: 4.4rem;
     font-weight: 600;
-    width: 100%;
+    /* width: 100%; */
+    flex: 1;
     margin-bottom: 10px;
     border: none;
 }
