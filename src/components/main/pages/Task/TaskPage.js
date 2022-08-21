@@ -6,7 +6,7 @@ import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -75,9 +75,15 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
         toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id);
     }
 
-    // Delete BUtton (Comment)
+    // Delete Button (Comment)
     function deleteCommentButtonClicked(id) {
         deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id);
+    }
+
+    // Create New Comment Button Clicked
+    function createNewCommentClicked(e) {
+        e.preventDefault();
+        createNewComment(currentProjectId, currentTaskId, currentTaskType)
     }
 
     return (
@@ -136,7 +142,7 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                         <ButtonStrong
                             iconClass='fa-solid fa-plus'
                             text='Add Comment'
-                            handleClick={() => console.log('Add Task Button Clicked!')}
+                            handleClick={(e) => createNewCommentClicked(e)}
                         />
                     </form>
                     {/* No Comments: */}

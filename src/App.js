@@ -664,7 +664,6 @@ function App() {
     updateAll();
   }
 
-
   // Toggle Priority Button (Comment)
   function togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id) {
     userData.projects.filter(project => {
@@ -805,6 +804,74 @@ function App() {
     updateAll();
   }
 
+  // Create New Comment
+  function createNewComment(currentProjectId, currentTaskId, currentTaskType) {
+    console.log()
+    userData.projects.filter(project => {
+      if (project.id === currentProjectId) {
+        if (currentTaskType === 'To Do') {
+          // console.log(project.tasks.toDo);
+          project.tasks.toDo.filter(task => {
+            if (task.id === currentTaskId) {
+              console.log(task);
+              task.comments.push(
+                {
+                  "id": task.comments.length + 1,
+                  "author": "Bob",
+                  "content": "New comment!",
+                  "dateCreated": getFullDate(),
+                  "timeCreated": getCurrentTime(),
+                  "isPriority": false,
+                  "isLiked": false,
+                  "isDeleted": false
+                }
+              );
+            }
+          })
+        } else if (currentTaskType === 'In Progress') {
+          // console.log(project.tasks.inProgress);
+          project.tasks.inProgress.filter(task => {
+            if (task.id === currentTaskId) {
+              console.log(task);
+              task.comments.push(
+                {
+                  "id": task.comments.length + 1,
+                  "author": "Bob",
+                  "content": "New comment!",
+                  "dateCreated": getFullDate(),
+                  "timeCreated": getCurrentTime(),
+                  "isPriority": false,
+                  "isLiked": false,
+                  "isDeleted": false
+                }
+              );
+            }
+          })
+        } else if (currentTaskType === 'Complete') {
+          // console.log(project.tasks.complete);
+          project.tasks.complete.filter(task => {
+            if (task.id === currentTaskId) {
+              console.log(task);
+              task.comments.push(
+                {
+                  "id": task.comments.length + 1,
+                  "author": "Bob",
+                  "content": "New comment!",
+                  "dateCreated": getFullDate(),
+                  "timeCreated": getCurrentTime(),
+                  "isPriority": false,
+                  "isLiked": false,
+                  "isDeleted": false
+                }
+              );
+            }
+          })
+        }
+      }
+    })
+    updateAll();
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -848,6 +915,7 @@ function App() {
             togglePriorityButton={(currentProjectId, currentTaskType, currentTaskId, id) => togglePriorityButton(currentProjectId, currentTaskType, currentTaskId, id)}
             toggleLikeButton={(currentProjectId, currentTaskType, currentTaskId, id) => toggleLikeButton(currentProjectId, currentTaskType, currentTaskId, id)}
             deleteCommentButton={(currentProjectId, currentTaskType, currentTaskId, id) => deleteCommentButton(currentProjectId, currentTaskType, currentTaskId, id)}
+            createNewComment={(currentProjectId, currentTaskId, currentTaskType) => createNewComment(currentProjectId, currentTaskId, currentTaskType)}
           />
         </div>
       </div>
