@@ -815,7 +815,6 @@ function App() {
     updateAll();
   }
   function createNewComment(currentProjectId, currentTaskId, currentTaskType) {
-    console.log()
     if (commentInputValue !== '') {
       userData.projects.filter(project => {
         if (project.id === currentProjectId) {
@@ -823,7 +822,7 @@ function App() {
             // console.log(project.tasks.toDo);
             project.tasks.toDo.filter(task => {
               if (task.id === currentTaskId) {
-                console.log(task);
+                // console.log(task);
                 task.comments.push(
                   {
                     "id": task.comments.length + 1,
@@ -842,7 +841,7 @@ function App() {
             // console.log(project.tasks.inProgress);
             project.tasks.inProgress.filter(task => {
               if (task.id === currentTaskId) {
-                console.log(task);
+                // console.log(task);
                 task.comments.push(
                   {
                     "id": task.comments.length + 1,
@@ -861,7 +860,7 @@ function App() {
             // console.log(project.tasks.complete);
             project.tasks.complete.filter(task => {
               if (task.id === currentTaskId) {
-                console.log(task);
+                // console.log(task);
                 task.comments.push(
                   {
                     "id": task.comments.length + 1,
@@ -885,11 +884,11 @@ function App() {
   }
 
   function deleteProjectButton(currentProjectId) {
-    console.log(currentProjectId)
+    // console.log(currentProjectId)
     userData.projects.filter(project => {
       if (project.id === currentProjectId) {
         project.isDeleted = true;
-        console.log(project);
+        // console.log(project);
       }
     })
     updateAll();
@@ -905,21 +904,21 @@ function App() {
           project.tasks.toDo.filter(task => {
             if (task.id === currentTaskId) {
               task.isDeleted = true;
-              console.log(task)
+              // console.log(task)
             }
           })
         } else if (currentTaskType === 'In Progress') {
           project.tasks.inProgress.filter(task => {
             if (task.id === currentTaskId) {
               task.isDeleted = true;
-              console.log(task)
+              // console.log(task)
             }
           })
         } else if (currentTaskType === 'Complete') {
           project.tasks.complete.filter(task => {
             if (task.id === currentTaskId) {
               task.isDeleted = true;
-              console.log(task)
+              // console.log(task)
             }
           })
         }
@@ -931,7 +930,7 @@ function App() {
 
   // Change Task Status
   function changeTaskStatus(changeToStatus, currentProjectId, currentTaskType, currentTaskId) {
-    console.log(`THIS IS A "${changeToStatus}"`);
+    // console.log(changeToStatus);
     userData.projects.filter(project => {
       if (project.id === currentProjectId) {
         // console.log(project);
@@ -942,15 +941,18 @@ function App() {
               if (changeToStatus === 'To Do') {
                 newTask.id = project.tasks.toDo.length + 1;
                 project.tasks.toDo.push(newTask);
+                openTaskPage(project.tasks.toDo.length, 'To Do', newTask.id);
               } else if (changeToStatus === 'In Progress') {
                 newTask.id = project.tasks.inProgress.length + 1;
                 project.tasks.inProgress.push(newTask);
+                openTaskPage(project.tasks.inProgress.length, 'In Progress', newTask.id);
               } else if (changeToStatus === 'Complete') {
                 newTask.id = project.tasks.complete.length + 1;
                 project.tasks.complete.push(newTask);
+                openTaskPage(project.tasks.complete.length, 'Complete', newTask.id);
               }
               task.isDeleted = true;
-              console.log(project);
+              // console.log(project);
             }
           });
         } else if (currentTaskType === 'In Progress') {
@@ -960,15 +962,18 @@ function App() {
               if (changeToStatus === 'To Do') {
                 newTask.id = project.tasks.toDo.length + 1;
                 project.tasks.toDo.push(newTask);
+                openTaskPage(project.tasks.toDo.length, 'To Do', newTask.id);
               } else if (changeToStatus === 'In Progress') {
                 newTask.id = project.tasks.inProgress.length + 1;
                 project.tasks.inProgress.push(newTask);
+                openTaskPage(project.tasks.inProgress.length, 'In Progress', newTask.id);
               } else if (changeToStatus === 'Complete') {
                 newTask.id = project.tasks.complete.length + 1;
                 project.tasks.complete.push(newTask);
+                openTaskPage(project.tasks.complete.length, 'Complete', newTask.id);
               }
               task.isDeleted = true;
-              console.log(task);
+              // console.log(task);
             }
           });
         } else if (currentTaskType === 'Complete') {
@@ -978,20 +983,24 @@ function App() {
               if (changeToStatus === 'To Do') {
                 newTask.id = project.tasks.toDo.length + 1;
                 project.tasks.toDo.push(newTask);
+                openTaskPage(project.tasks.toDo.length, 'To Do', newTask.id);
               } else if (changeToStatus === 'In Progress') {
                 newTask.id = project.tasks.inProgress.length + 1;
                 project.tasks.inProgress.push(newTask);
+                openTaskPage(project.tasks.inProgress.length, 'In Progress', newTask.id);
               } else if (changeToStatus === 'Complete') {
                 newTask.id = project.tasks.complete.length + 1;
                 project.tasks.complete.push(newTask);
+                openTaskPage(project.tasks.complete.length, 'Complete', newTask.id);
               }
               task.isDeleted = true;
-              console.log(task);
+              // console.log(task);
             }
           });
         }
       }
     })
+    setCurrentProjectId(currentProjectId);
     updateAll();
   }
 
