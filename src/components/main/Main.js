@@ -12,7 +12,7 @@ import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteProjectButton, deleteTaskButton }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteProjectButton, deleteTaskButton, changeTaskStatus }) {
     return (
         <main className="main">
             <MainNav
@@ -107,6 +107,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         updateCommentInputValue={updateCommentInputValue}
                         commentInputValue={commentInputValue}
                         deleteTaskButton={deleteTaskButton}
+                        changeTaskStatus={changeTaskStatus}
                     />
                 </div>}
             </div>

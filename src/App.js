@@ -929,6 +929,72 @@ function App() {
     setCurrentPageName('Project Page');
   }
 
+  // Change Task Status
+  function changeTaskStatus(changeToStatus, currentProjectId, currentTaskType, currentTaskId) {
+    console.log(`THIS IS A "${changeToStatus}"`);
+    userData.projects.filter(project => {
+      if (project.id === currentProjectId) {
+        // console.log(project);
+        if (currentTaskType === 'To Do') {
+          project.tasks.toDo.filter(task => {
+            if (task.id === currentTaskId) {
+              const newTask = { ...task };
+              if (changeToStatus === 'To Do') {
+                newTask.id = project.tasks.toDo.length + 1;
+                project.tasks.toDo.push(newTask);
+              } else if (changeToStatus === 'In Progress') {
+                newTask.id = project.tasks.inProgress.length + 1;
+                project.tasks.inProgress.push(newTask);
+              } else if (changeToStatus === 'Complete') {
+                newTask.id = project.tasks.complete.length + 1;
+                project.tasks.complete.push(newTask);
+              }
+              task.isDeleted = true;
+              console.log(project);
+            }
+          });
+        } else if (currentTaskType === 'In Progress') {
+          project.tasks.inProgress.filter(task => {
+            if (task.id === currentTaskId) {
+              const newTask = { ...task };
+              if (changeToStatus === 'To Do') {
+                newTask.id = project.tasks.toDo.length + 1;
+                project.tasks.toDo.push(newTask);
+              } else if (changeToStatus === 'In Progress') {
+                newTask.id = project.tasks.inProgress.length + 1;
+                project.tasks.inProgress.push(newTask);
+              } else if (changeToStatus === 'Complete') {
+                newTask.id = project.tasks.complete.length + 1;
+                project.tasks.complete.push(newTask);
+              }
+              task.isDeleted = true;
+              console.log(task);
+            }
+          });
+        } else if (currentTaskType === 'Complete') {
+          project.tasks.complete.filter(task => {
+            if (task.id === currentTaskId) {
+              const newTask = { ...task };
+              if (changeToStatus === 'To Do') {
+                newTask.id = project.tasks.toDo.length + 1;
+                project.tasks.toDo.push(newTask);
+              } else if (changeToStatus === 'In Progress') {
+                newTask.id = project.tasks.inProgress.length + 1;
+                project.tasks.inProgress.push(newTask);
+              } else if (changeToStatus === 'Complete') {
+                newTask.id = project.tasks.complete.length + 1;
+                project.tasks.complete.push(newTask);
+              }
+              task.isDeleted = true;
+              console.log(task);
+            }
+          });
+        }
+      }
+    })
+    updateAll();
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -977,6 +1043,7 @@ function App() {
             commentInputValue={commentInputValue}
             deleteProjectButton={(currentProjectId) => deleteProjectButton(currentProjectId)}
             deleteTaskButton={(currentProjectId, currentTaskId, currentTaskType) => deleteTaskButton(currentProjectId, currentTaskId, currentTaskType)}
+            changeTaskStatus={(changeToStatus, currentProjectId, currentTaskType, currentTaskId) => changeTaskStatus(changeToStatus, currentProjectId, currentTaskType, currentTaskId)}
           />
         </div>
       </div>

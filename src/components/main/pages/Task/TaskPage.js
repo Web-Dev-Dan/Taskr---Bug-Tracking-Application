@@ -6,7 +6,7 @@ import './TaskPage.css';
 import ButtonStrong from '../../../../reusable/buttons/ButtonStrong/ButtonStrong';
 import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
 
-function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteTaskButton }) {
+function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, updateCurrentProject, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteTaskButton, changeTaskStatus }) {
     console.log(userData)
     console.log(`This is Task ${currentTaskId} of the ${currentTaskType} category of project number ${currentProjectId}`);
 
@@ -104,6 +104,17 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
         deleteTaskButton(currentProjectId, currentTaskId, currentTaskType);
     }
 
+    // Show Status Buttons
+    const [statusButtonsShown, setStatusButtonsShown] = useState(false);
+    function openStatusButtonsClicked() {
+        setStatusButtonsShown(true);
+    }
+    function changeStatusButtonClicked(changeToStatus) {
+        // console.log(changeToStatus);
+        changeTaskStatus(changeToStatus, currentProjectId, currentTaskType, currentTaskId);
+        setStatusButtonsShown(false);
+    }
+
     return (
         <div className={`ticket-container ${typeStyling}`}>
             {/* Ticket Title Information */}
@@ -137,10 +148,39 @@ function TaskPage({ userData, currentProjectId, currentTaskId, currentTaskType, 
                 </div>
             </div >
             {/* Tag */}
-            < div className="ticket-info__tag-container" >
-                <i className="ticket-info__tag-icon fa-solid fa-hashtag"></i>
-                <input onChange={(e) => handleTaskTagChange(e)} className="ticket-info__tag-input" value={currentTask.tag} placeholder="Add Tag..." type="text" />
-            </div >
+            <div className="ticket-info__tag-and-status">
+                < div className="ticket-info__tag-container" >
+                    <i className="ticket-info__tag-icon fa-solid fa-hashtag"></i>
+                    <input onChange={(e) => handleTaskTagChange(e)} className="ticket-info__tag-input" value={currentTask.tag} placeholder="Add Tag..." type="text" />
+                </div >
+                {statusButtonsShown && <div className="ticket-info__button-container">
+                    <p className="ticket-info__status-text">Status:</p>
+                    <button onClick={() => changeStatusButtonClicked('To Do')} className={`${currentTaskType === 'To Do' && 'to-do-button--selected'} ticket-info__status-button hover--blue btn-transparent`}>
+                        <i className="fa-solid fa-layer-group"></i>
+                        {/* <p>To Do</p> */}
+                    </button>
+                    <button onClick={() => changeStatusButtonClicked('In Progress')} className={`${currentTaskType === 'In Progress' && 'in-progress-button--selected'} ticket-info__status-button hover--yellow btn-transparent`}>
+                        <i className="fa-solid fa-trowel-bricks"></i>
+                        {/* <p>In Progress</p> */}
+                    </button>
+                    <button onClick={() => changeStatusButtonClicked('Complete')} className={`${currentTaskType === 'Complete' && 'complete-button--selected'} ticket-info__status-button hover--green btn-transparent`}>
+                        <i className="fa-solid fa-fire"></i>
+                        {/* <p>Complete</p> */}
+                    </button>
+                </div>}
+                {!statusButtonsShown && <div className="ticket-info__button-container">
+                    <p className="ticket-info__status-text">Status:</p>
+                    {currentTaskType === 'To Do' && <button onClick={() => openStatusButtonsClicked()} className="ticket-info__status-button--small btn-transparent">
+                        <i className="fa-solid fa-layer-group"></i>
+                    </button>}
+                    {currentTaskType === 'In Progress' && <button onClick={() => openStatusButtonsClicked()} className="ticket-info__status-button--small btn-transparent">
+                        <i className="fa-solid fa-trowel-bricks"></i>
+                    </button>}
+                    {currentTaskType === 'Complete' && <button onClick={() => openStatusButtonsClicked()} className="ticket-info__status-button--small btn-transparent">
+                        <i className="fa-solid fa-fire"></i>
+                    </button>}
+                </div>}
+            </div>
             {/* Description */}
             <div className="ticket__description-container">
                 <textarea onChange={(e) => handleTaskContentChange(e)} className="ticket__description" value={currentTask.content} placeholder="Add Description..." type="text" />

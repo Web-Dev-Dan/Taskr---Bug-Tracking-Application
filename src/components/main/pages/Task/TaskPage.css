@@ -164,6 +164,12 @@
     font-weight: 700;
 }
 
+/* Tag and Status Button Container */
+.ticket-info__tag-and-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .ticket-info__tag-container {
     display: flex;
@@ -191,6 +197,114 @@
     font-weight: 400;
     text-transform: none;
 }
+
+.ticket-info__button-container {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+}
+
+.ticket-info__status-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.ticket-info__status-button {
+    background-color: var(--color-dropdown-hover);
+    color: var(--color-gray-darkest);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticket-info__status-button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.ticket-info__status-button.hover--blue:hover {
+    background-color: var(--color-update);
+    color: white;
+}
+
+.ticket-info__status-button.hover--yellow:hover {
+    background-color: var(--color-yellow);
+    color: white;
+}
+
+.ticket-info__status-button.hover--green:hover {
+    background-color: var(--color-complete);
+    color: white;
+}
+
+.to-do-button--selected {
+    background-color: var(--color-update);
+    color: white;
+}
+
+.in-progress-button--selected {
+    background-color: var(--color-yellow);
+    color: white;
+}
+
+.complete-button--selected {
+    background-color: var(--color-complete);
+    color: white;
+}
+
+.ticket-info__status-button i {
+    font-size: 2rem;
+    transition: .2s;
+}
+
+.ticket-info__status-button:hover i {
+    font-size: 2.6rem;
+}
+
+.ticket-info__status-button p {
+    font-size: 1.6rem;
+}
+
+.ticket-info__status-button--small {
+    background-color: var(--color-dropdown-hover);
+    color: var(--color-gray-darkest);
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+}
+
+.ticket-info__status-button--small:hover {
+    filter: brightness(95%);
+}
+
+.ticket-info__status-button--small:hover i {
+    font-size: 2.8rem;
+}
+
+.ticket-container--primary .ticket-info__status-button--small {
+    background-color: var(--color-update);
+}
+
+.ticket-container--yellow .ticket-info__status-button--small {
+    background-color: var(--color-yellow);
+}
+
+.ticket-container--green .ticket-info__status-button--small {
+    background-color: var(--color-complete);
+}
+
+.ticket-info__status-button--small i {
+    color: white;
+    font-size: 2.4rem;
+    transition: .2s;
+}
+
+/* --- */
 
 .ticket__description-container {}
 
