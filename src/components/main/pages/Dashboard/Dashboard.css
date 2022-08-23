@@ -30,10 +30,12 @@
 
 .grid-button {
     /* background-color: var(--color-primary-light); */
+    color: var(--color-gray-darkest);
     background-color: var(--color-dropdown-hover);
     border-top: 5px solid var(--color-gray);
     position: relative;
     overflow: hidden;
+    transition: .2s;
 }
 
 .grid-button--large {
@@ -67,7 +69,52 @@
     transition: .2s;
 }
 
+.grid-button__title {
+    font-size: 3.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.grid-button__info-container {
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.grid-button__icon-container {
+    background-color: var(--color-gray-dark);
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .2s;
+}
+
+.grid-button__icon {
+    color: white;
+    font-size: 16px;
+}
+
+.grid-button__text {
+    font-size: 1.8rem;
+    font-weight: 300;
+}
+
+.grid-button--large .grid-button__title {
+    margin-bottom: 25px;
+}
+
+.grid-button--large .grid-button__info-container:not(:last-child) {
+    margin-bottom: 10px;
+}
+
 .grid-button:hover {
+    color: black;
     background-color: var(--color-primary-light);
     border-top: 5px solid var(--color-primary);
 }
@@ -76,4 +123,8 @@
 .grid-button:hover .grid-button__background-icon--large {
     color: var(--color-primary);
     transform: translateX(-20%) translateY(-50%) scale(120%);
+}
+
+.grid-button:hover .grid-button__icon-container {
+    background-color: var(--color-primary);
 }
