@@ -241,7 +241,7 @@ function App() {
   // const [username, setUsername] = useState('Daniel');
   const [userData, setUserData] = useState(
     {
-      "username": "User",
+      "username": "Daniel",
       "projects": [
         // --- START OF PROJECTS ---
         {
@@ -529,7 +529,7 @@ function App() {
         {
           "id": 2,
           "title": "Thank you for your support!",
-          "content": `Hi, my name is Daniel Healy, and I'm the creator of Taskr. I decided to create this project to get more organised with my own portfolio projects. It was also my way of learning React.js by effectively jumping in at the deep end and learning as I went. If you are here, then I would like to thank you for your support and for taking the time to check out my project! Feel free to connect with me over on Twitter @web_dev_dan (link in the footer at the bottom of the page), as I intend to add more features and improve Taskr in the coming weeks and months. I'd be delighted to hear from you!`,
+          "content": `Hi, my name is Daniel Healy, and I'm the creator of Taskr. I decided to create this project to get more organised with my own portfolio projects. It was also my way of learning React.js by effectively jumping in at the deep end and learning as I went. If you are here, then I would like to thank you for your support and for taking the time to check out my project! Feel free to connect with me over on Twitter @web_dev_dan (link in the footer at the bottom of the page), as I intend to add more features and improve Taskr in the coming weeks and months. I'd be delighted to hear from you if you have any comments or suggestions.`,
           "author": "Daniel Healy",
           "timeCreated": getCurrentTime(),
           "dateCreated": getFullDate(),

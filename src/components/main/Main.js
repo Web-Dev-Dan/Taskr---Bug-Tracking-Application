@@ -28,7 +28,9 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                         currentPageName={currentPageName}
                         iconClasses='fa-solid fa-shapes'
                     />
-                    <Dashboard />
+                    <Dashboard
+                        userData={userData}
+                    />
                     {/* INCLUDE A HORIZONTAL SCROLL BOX OF PROJECTS? NAME & 3 COLOURED BOXES UNDERNEATH WITH ICONS AND NUMBERS TO INDICATE HOW MANY TODOS, INPROGRESS, COMPLETE ITEMS THERE ARE */}
                 </div>}
                 {currentPageName === 'Projects' && <div>
