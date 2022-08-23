@@ -241,9 +241,58 @@ function App() {
   // const [username, setUsername] = useState('Daniel');
   const [userData, setUserData] = useState(
     {
-      "username": "Daniel",
+      "username": "User",
       "projects": [
         // --- START OF PROJECTS ---
+        {
+          "id": 1,
+          "title": "Getting Started",
+          "author": "Botty Bot",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "tasks": {
+            "toDo": [
+              {
+                "id": 1,
+                "title": "Create Your Own Project!",
+                "author": "Botty Bot",
+                "content": "Use Taskr to plan and organise your own projects.",
+                "tag": "Setup",
+                "timeCreated": getCurrentTime(),
+                "dateCreated": getFullDate(),
+                "dateCreatedShort": getShortDate(),
+                "comments": [
+                  {
+                    "id": 1,
+                    "author": "Botty Bot",
+                    "content": "You can create your own project by navigating to the 'Projects' page and pressing the 'Create Project' button!",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  },
+                  {
+                    "id": 2,
+                    "author": "Botty Bot",
+                    "content": "You can change the status of your current task by pressing the icon next to 'Status'.",
+                    "dateCreated": getFullDate(),
+                    "timeCreated": getCurrentTime(),
+                    "isPriority": false,
+                    "isLiked": false,
+                    "isDeleted": false
+                  },
+                ],
+                "isDeleted": false,
+              },
+            ],
+            "inProgress": [],
+            "complete": [],
+          },
+          "isDeleted": false,
+          "isComplete": false,
+        }
+        /*
         {
           "id": 1,
           "title": "Portfolio Website",
@@ -401,10 +450,21 @@ function App() {
           "isDeleted": false,
           "isComplete": false
         },
+        */
         // --- END OF PROJECTS ---
       ],
       "reports": [
         {
+          "id": 1,
+          "title": "Taskr v1.0.0",
+          "content": "Taskr is currently in Beta stage production. Current functions include creating your own projects, adding and updating tasks, and checking messages and reports.",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "reportType": "Update",
+          "isRead": false,
+          "isDeleted": false
+        },
+        /*{
           "id": 1,
           "title": "Moved 'Update Header' from 'To-Do' to 'In Progress'.",
           "content": null,
@@ -453,10 +513,30 @@ function App() {
           "reportType": "Complete",
           "isRead": false,
           "isDeleted": false
-        }
+        }*/
       ],
       "messages": [
         {
+          "id": 1,
+          "title": "Welcome to Taskr!",
+          "content": `Hello! Welcome to Taskr - the place to break down your projects into smaller, manageable tasks! Navigate to the 'Projects' page and get started right away! We hope you have a pleasant experience organising your work!`,
+          "author": "Botty Bot",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "isRead": false,
+          "isDeleted": false
+        },
+        {
+          "id": 2,
+          "title": "Thank you for your support!",
+          "content": `Hi, my name is Daniel Healy, and I'm the creator of Taskr. I decided to create this project to get more organised with my own portfolio projects. It was also my way of learning React.js by effectively jumping in at the deep end and learning as I went. If you are here, then I would like to thank you for your support and for taking the time to check out my project! Feel free to connect with me over on Twitter @web_dev_dan (link in the footer at the bottom of the page), as I intend to add more features and improve Taskr in the coming weeks and months. I'd be delighted to hear from you!`,
+          "author": "Daniel Healy",
+          "timeCreated": getCurrentTime(),
+          "dateCreated": getFullDate(),
+          "isRead": false,
+          "isDeleted": false
+        },
+        /*{
           "id": 1,
           "title": "Example Message",
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
@@ -485,7 +565,7 @@ function App() {
           "content": "Hello, this is some example message content just to check out how it looks once it is rendered in the broswer. Thanks!",
           "isRead": false,
           "isDeleted": false
-        }
+        }*/
       ]
     }
   )
