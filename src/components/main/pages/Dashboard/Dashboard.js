@@ -1,7 +1,7 @@
 
 import './Dashboard.css';
 
-function Dashboard({ userData }) {
+function Dashboard({ userData, openProjects, openReports, openMessages }) {
     console.log(userData)
     return (
         <div className="dashboard">
@@ -11,14 +11,14 @@ function Dashboard({ userData }) {
             </div>
             {/* Dashboard Grid */}
             <div className="dashboard__grid">
-                <button className="grid-button grid-button--large btn-transparent">
+                <button onClick={() => openProjects()} className="grid-button grid-button--large btn-transparent">
                     <i className="grid-button__background-icon--large fa-solid fa-bolt"></i>
                     <h2 className="grid-button__title">Projects</h2>
                     <div className="grid-button__info-container">
                         <div className="grid-button__icon-container">
                             <i className="grid-button__icon fa-solid fa-bolt"></i>
                         </div>
-                        <p className="grid-button__text">You've got <strong>2 projects</strong>.</p>
+                        <p className="grid-button__text">You've got <strong>{userData.projects.filter(project => project.isDeleted === false).length} {userData.projects.filter(project => project.isDeleted === false).length === 1 ? 'project' : 'projects'}</strong>.</p>
                     </div>
                     <div className="grid-button__info-container">
                         <div className="grid-button__icon-container">
@@ -39,24 +39,24 @@ function Dashboard({ userData }) {
                         <p className="grid-button__text">You've <strong>complete 1 task</strong>.</p>
                     </div>
                 </button>
-                <button className="grid-button grid-button--small btn-transparent">
+                <button onClick={() => openReports()} className="grid-button grid-button--small btn-transparent">
                     <i className="grid-button__background-icon fa-solid fa-bug"></i>
                     <h2 className="grid-button__title">Reports</h2>
                     <div className="grid-button__info-container">
                         <div className="grid-button__icon-container">
                             <i className="grid-button__icon fa-solid fa-bug"></i>
                         </div>
-                        <p className="grid-button__text">You've got <strong>2 new reports</strong>.</p>
+                        <p className="grid-button__text">You've got <strong>{userData.reports.filter(report => report.isRead === false).length} new {userData.reports.filter(report => report.isRead === false).length === 1 ? 'report' : 'reports'}</strong>.</p>
                     </div>
                 </button>
-                <button className="grid-button grid-button--small btn-transparent">
+                <button onClick={() => openMessages()} className="grid-button grid-button--small btn-transparent">
                     <i className="grid-button__background-icon fa-solid fa-envelope"></i>
                     <h2 className="grid-button__title">Messages</h2>
                     <div className="grid-button__info-container">
                         <div className="grid-button__icon-container">
                             <i className="grid-button__icon fa-solid fa-envelope"></i>
                         </div>
-                        <p className="grid-button__text">You've got <strong>5 new messages</strong>.</p>
+                        <p className="grid-button__text">You've got <strong>{userData.messages.filter(message => message.isRead === false).length} new {userData.messages.filter(message => message.isRead === false).length === 1 ? 'message' : 'messages'}</strong>.</p>
                     </div>
                 </button>
             </div>

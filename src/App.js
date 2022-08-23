@@ -1133,6 +1133,8 @@ function App() {
             deleteProjectButton={(currentProjectId) => deleteProjectButton(currentProjectId)}
             deleteTaskButton={(currentProjectId, currentTaskId, currentTaskType) => deleteTaskButton(currentProjectId, currentTaskId, currentTaskType)}
             changeTaskStatus={(changeToStatus, currentProjectId, currentTaskType, currentTaskId) => changeTaskStatus(changeToStatus, currentProjectId, currentTaskType, currentTaskId)}
+            openReports={() => openReports()}
+            openMessages={() => openMessages()}
           />
         </div>
       </div>

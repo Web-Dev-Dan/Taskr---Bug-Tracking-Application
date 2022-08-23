@@ -12,7 +12,7 @@ import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteProjectButton, deleteTaskButton, changeTaskStatus }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteProjectButton, deleteTaskButton, changeTaskStatus, openReports, openMessages }) {
     return (
         <main className="main">
             <MainNav
@@ -30,6 +30,9 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                     />
                     <Dashboard
                         userData={userData}
+                        openProjects={openProjects}
+                        openReports={openReports}
+                        openMessages={openMessages}
                     />
                     {/* INCLUDE A HORIZONTAL SCROLL BOX OF PROJECTS? NAME & 3 COLOURED BOXES UNDERNEATH WITH ICONS AND NUMBERS TO INDICATE HOW MANY TODOS, INPROGRESS, COMPLETE ITEMS THERE ARE */}
                 </div>}
