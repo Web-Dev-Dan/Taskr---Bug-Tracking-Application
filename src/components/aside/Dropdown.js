@@ -47,7 +47,17 @@ function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewPr
                     </button>
                 </form>
                 {/* Dropdown Options */}
-                {userData.projects.length > 0 && <div className="dropdown-content__options">
+                {[...userData.projects.filter(project => project.isDeleted === false)].length > 0 && <div className="dropdown-content__options">
+                    {[...userData.projects.filter(project => project.isDeleted === false).map(project => {
+                        return <DropdownOption
+                            key={project.id}
+                            id={project.id}
+                            title={project.title}
+                            openProjectPage={openProjectPage}
+                        />
+                    })]}
+                </div>}
+                {/* {userData.projects.length > 0 && <div className="dropdown-content__options">
                     {userData.projects.map(project => {
                         return <DropdownOption
                             key={project.id}
@@ -56,7 +66,7 @@ function Dropdown({ icon, title, textIsShown, updateCurrentPageName, createNewPr
                             openProjectPage={openProjectPage}
                         />
                     })}
-                </div>}
+                </div>} */}
             </div>}
         </div>
     )
