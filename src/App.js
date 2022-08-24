@@ -620,13 +620,13 @@ function App() {
     userData.reports.push(
       {
         "id": userData.reports.length + 1,
-        "title": "New One",
-        "content": "Hello, this is some example report content just to check out how it looks once it is rendered in the broswer. Thanks!",
-        "timeCreated": '18:30',
-        "dateCreated": 'Tuesday 13 August, 2022',
-        "reportType": "Update",
-        "isRead": false,
-        "isDeleted": false
+        "title": title,
+        "content": content,
+        "timeCreated": timeCreated,
+        "dateCreated": dateCreated,
+        "reportType": reportType,
+        "isRead": isRead,
+        "isDeleted": isDeleted
       }
     )
     updateAll();
@@ -969,6 +969,15 @@ function App() {
       if (project.id === currentProjectId) {
         project.isDeleted = true;
         // console.log(project);
+        createNewReport(
+          'Project Deleted',
+          `'${project.title}' was deleted by ${userData.username}.`,
+          getCurrentTime(),
+          getFullDate(),
+          'Warning',
+          false,
+          false
+        )
       }
     })
     updateAll();
@@ -985,6 +994,15 @@ function App() {
             if (task.id === currentTaskId) {
               task.isDeleted = true;
               // console.log(task)
+              createNewReport(
+                'Task Deleted',
+                `A task with the title of '${task.title}' was deleted from project '${project.title}' by ${userData.username}. This task was in the 'To Do' category at the time of deletion.`,
+                getCurrentTime(),
+                getFullDate(),
+                'Warning',
+                false,
+                false
+              )
             }
           })
         } else if (currentTaskType === 'In Progress') {
@@ -992,6 +1010,15 @@ function App() {
             if (task.id === currentTaskId) {
               task.isDeleted = true;
               // console.log(task)
+              createNewReport(
+                'Task Deleted',
+                `A task with the title of '${task.title}' was deleted from project '${project.title}' by ${userData.username}. This task was in the 'In Progress' category at the time of deletion.`,
+                getCurrentTime(),
+                getFullDate(),
+                'Warning',
+                false,
+                false
+              )
             }
           })
         } else if (currentTaskType === 'Complete') {
@@ -999,6 +1026,15 @@ function App() {
             if (task.id === currentTaskId) {
               task.isDeleted = true;
               // console.log(task)
+              createNewReport(
+                'Task Deleted',
+                `A task with the title of '${task.title}' was deleted from project '${project.title}' by ${userData.username}. This task was in the 'Complete' category at the time of deletion.`,
+                getCurrentTime(),
+                getFullDate(),
+                'Warning',
+                false,
+                false
+              )
             }
           })
         }
