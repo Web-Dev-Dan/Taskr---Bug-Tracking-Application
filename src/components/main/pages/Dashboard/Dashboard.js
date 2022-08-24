@@ -1,8 +1,28 @@
 
+import { userState, useEffect, useState } from 'react';
 import './Dashboard.css';
 
 function Dashboard({ userData, openProjects, openReports, openMessages }) {
-    console.log(userData)
+    // console.log(userData)
+    const [totalToDos, setTotalToDos] = useState(0);
+    const [totalInProgress, setTotalInProgress] = useState(0);
+    const [totalComplete, setTotalComplete] = useState(0);
+
+    useEffect(() => {
+        let toDos = 0;
+        let inProgress = 0;
+        let complete = 0;
+        userData.projects.filter(project => project.isDeleted === false).forEach(project => {
+            // console.log(project.title)
+            toDos += project.tasks.toDo.filter(task => task.isDeleted === false).length;
+            inProgress += project.tasks.inProgress.filter(task => task.isDeleted === false).length;
+            complete += project.tasks.complete.filter(task => task.isDeleted === false).length;
+            setTotalToDos(toDos);
+            setTotalInProgress(inProgress);
+            setTotalComplete(complete);
+        });
+    }, []);
+
     return (
         <div className="dashboard">
             {/* Welcome Message */}
@@ -24,19 +44,19 @@ function Dashboard({ userData, openProjects, openReports, openMessages }) {
                         <div className="grid-button__icon-container">
                             <i className="grid-button__icon fa-solid fa-layer-group"></i>
                         </div>
-                        <p className="grid-button__text">You've got <strong>2 tasks to do</strong>.</p>
+                        <p className="grid-button__text">You've got <strong>{totalToDos} {totalToDos === 1 ? 'task' : 'tasks'} to do</strong>.</p>
                     </div>
                     <div className="grid-button__info-container">
                         <div className="grid-button__icon-container">
                             <i className="grid-button__icon fa-solid fa-trowel-bricks"></i>
                         </div>
-                        <p className="grid-button__text">You've got <strong>5 tasks in progress</strong>.</p>
+                        <p className="grid-button__text">You've got <strong>{totalInProgress} {totalInProgress === 1 ? 'task' : 'tasks'} in progress</strong>.</p>
                     </div>
                     <div className="grid-button__info-container">
                         <div className="grid-button__icon-container">
                             <i className="grid-button__icon fa-solid fa-fire"></i>
                         </div>
-                        <p className="grid-button__text">You've <strong>complete 1 task</strong>.</p>
+                        <p className="grid-button__text">You've <strong>complete {totalComplete} {totalComplete === 1 ? 'task' : 'tasks'}</strong>.</p>
                     </div>
                 </button>
                 <button onClick={() => openReports()} className="grid-button grid-button--small btn-transparent">
