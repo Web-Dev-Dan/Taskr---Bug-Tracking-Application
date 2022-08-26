@@ -4,7 +4,7 @@ import NotificationBubble from '../../../../reusable/notifications/NotificationB
 import MessageBox from './MessageBox';
 import './Messages.css';
 
-function Messages({ userData, updateMessageIsRead }) {
+function Messages({ userData, updateMessageIsRead, deleteMessage }) {
     // console.log(userData.messages);
     let unread_messageNotifications = userData.messages ? userData.messages.filter(message => message.isRead === false) : 0;
 
@@ -18,7 +18,7 @@ function Messages({ userData, updateMessageIsRead }) {
             />}
             {/* Has Messages: */}
             <div className="messages__display">
-                {userData.messages.length > 0 && userData.messages.map(message => {
+                {userData.messages.filter(message => message.isDeleted === false).length > 0 && userData.messages.filter(message => message.isDeleted === false).map(message => {
                     return <MessageBox
                         key={message.id}
                         id={message.id}
@@ -30,11 +30,12 @@ function Messages({ userData, updateMessageIsRead }) {
                         isRead={message.isRead}
                         isDeleted={message.isDeleted}
                         updateMessageIsRead={updateMessageIsRead}
+                        deleteMessage={deleteMessage}
                     />
                 })}
             </div>
             {/* No Messages: */}
-            {userData.messages.length === 0 &&
+            {userData.messages.filter(message => message.isDeleted === false).length === 0 &&
                 <EmptyNotification
                     icon='fa-solid fa-box-open'
                     text='Looks like you have no messages!'

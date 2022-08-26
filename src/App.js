@@ -1120,6 +1120,26 @@ function App() {
     updateAll();
   }
 
+  function deleteMessage(id) {
+    // console.log(`Message ${id} is deleted`);
+    userData.messages.filter(message => {
+      if (message.id === id) {
+        message.isDeleted = true;
+      }
+    });
+    updateAll();
+  }
+
+  function deleteReport(id) {
+    // console.log(`Report ${id} is deleted`);
+    userData.reports.filter(report => {
+      if (report.id === id) {
+        report.isDeleted = true;
+      }
+    });
+    updateAll();
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -1171,6 +1191,8 @@ function App() {
             changeTaskStatus={(changeToStatus, currentProjectId, currentTaskType, currentTaskId) => changeTaskStatus(changeToStatus, currentProjectId, currentTaskType, currentTaskId)}
             openReports={() => openReports()}
             openMessages={() => openMessages()}
+            deleteMessage={(id) => deleteMessage(id)}
+            deleteReport={(id) => deleteReport(id)}
           />
         </div>
       </div>

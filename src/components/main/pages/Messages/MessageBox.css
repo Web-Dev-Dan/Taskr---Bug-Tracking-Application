@@ -62,6 +62,7 @@
 
 .message-container__button--bottom {
     padding-bottom: 20px;
+    position: relative;
 }
 
 .message-container__content {
@@ -88,6 +89,24 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Delete Button */
+.message-container__delete-button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+}
+
+.message-container__delete-button--icon {
+    color: var(--color-update);
+    font-size: 20px;
+}
+
+.message-container__delete-button:hover .message-container__delete-button--icon {
+    filter: brightness(90%);
 }
 
 /* Message Hovered */

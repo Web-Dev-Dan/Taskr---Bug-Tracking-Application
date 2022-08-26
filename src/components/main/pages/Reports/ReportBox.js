@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import './ReportBox.css';
 
-function ReportBox({ id, title, content, timeCreated, dateCreated, reportType, isRead, isDeleted, updateReportIsRead }) {
+function ReportBox({ id, title, content, timeCreated, dateCreated, reportType, isRead, isDeleted, updateReportIsRead, deleteReport }) {
 
     const [reportIsOpen, setReportIsOpen] = useState(false);
     function toggleOpenReport() {
@@ -64,6 +64,9 @@ function ReportBox({ id, title, content, timeCreated, dateCreated, reportType, i
                         <div className="report-container__content--info">
                             <p className="report__type-box">{reportType}</p>
                             <p>{dateCreated} | {timeCreated}</p>
+                            <button onClick={() => deleteReport(id)} className="report-container__delete-button btn-transparent">
+                                <i className="report-container__delete-button--icon fa-solid fa-trash-can"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -2,14 +2,14 @@
 import { useState } from 'react';
 import './MessageBox.css';
 
-function MessageBox({ id, title, author, timeCreated, dateCreated, content, isRead, isDeleted, updateMessageIsRead }) {
+function MessageBox({ id, title, author, timeCreated, dateCreated, content, isRead, isDeleted, updateMessageIsRead, deleteMessage }) {
     const [messageIsOpen, setMessageIsOpen] = useState(false);
 
     function toggleOpenMessage() {
         setMessageIsOpen(!messageIsOpen);
         if (!isRead) {
             updateMessageIsRead(id);
-            console.log('Message has now been read!');
+            // console.log('Message has now been read!');
         }
     }
 
@@ -33,6 +33,9 @@ function MessageBox({ id, title, author, timeCreated, dateCreated, content, isRe
                         <div className="message-container__content--info">
                             <p>{author}</p>
                             <p>{dateCreated} | {timeCreated}</p>
+                            <button onClick={() => deleteMessage(id)} className="message-container__delete-button btn-transparent">
+                                <i className="message-container__delete-button--icon fa-solid fa-trash-can"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

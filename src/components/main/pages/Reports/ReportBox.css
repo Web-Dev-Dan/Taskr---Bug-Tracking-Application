@@ -82,6 +82,24 @@
     padding: 3px 7px;
 }
 
+/* Delete Button */
+.report-container__delete-button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+}
+
+.report-container__delete-button--icon {
+    color: var(--color-update);
+    font-size: 20px;
+}
+
+.report-container__delete-button:hover .report-container__delete-button--icon {
+    filter: brightness(90%);
+}
+
 /* Report Hovered */
 .report-container:hover {
     transform: translateX(-10px);
@@ -96,6 +114,7 @@
 /* Report Content (Hidden) */
 .report-container__button--bottom {
     padding-bottom: 20px;
+    position: relative;
 }
 
 .report-container__content {

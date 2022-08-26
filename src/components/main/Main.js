@@ -12,7 +12,7 @@ import Reports from './pages/Reports/Reports';
 import Settings from './pages/Settings/Settings';
 import TaskPage from './pages/Task/TaskPage';
 
-function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteProjectButton, deleteTaskButton, changeTaskStatus, openReports, openMessages }) {
+function Main({ currentPageName, updateCurrentPageName, getYear, userData, updateMessageIsRead, updateReportIsRead, createNewProject, openProjectPage, currentProjectId, openProjects, updateInputValue, asideIsOpen, createNewTask, openTaskPage, currentTaskId, currentTaskType, updateCurrentProject, taskBackButtonClicked, updateTaskTitleValue, updateTaskTagValue, updateTaskContentValue, togglePriorityButton, toggleLikeButton, deleteCommentButton, createNewComment, updateCommentInputValue, commentInputValue, deleteProjectButton, deleteTaskButton, changeTaskStatus, openReports, openMessages, deleteMessage, deleteReport }) {
     return (
         <main className="main">
             <MainNav
@@ -56,6 +56,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                     <Reports
                         userData={userData}
                         updateReportIsRead={updateReportIsRead}
+                        deleteReport={deleteReport}
                     />
                 </div>}
                 {currentPageName === 'Messages' && <div>
@@ -66,6 +67,7 @@ function Main({ currentPageName, updateCurrentPageName, getYear, userData, updat
                     <Messages
                         userData={userData}
                         updateMessageIsRead={updateMessageIsRead}
+                        deleteMessage={deleteMessage}
                     />
                 </div>}
                 {currentPageName === 'Settings' && <div>
