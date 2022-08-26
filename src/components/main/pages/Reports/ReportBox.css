@@ -186,7 +186,8 @@
     border-left: 6px solid rgb(255, 176, 176);
 }
 
-.report--warning .report-container__content--info {
+.report--warning .report-container__content--info,
+.report--warning .report-container__delete-button--icon {
     color: var(--color-warning);
 }
 
@@ -212,7 +213,8 @@
     border-left: 6px solid rgb(251, 228, 184);
 }
 
-.report--status-change .report-container__content--info {
+.report--status-change .report-container__content--info,
+.report--status-change .report-container__delete-button--icon {
     color: var(--color-status-change);
 }
 
@@ -239,7 +241,8 @@
     border-left: 6px solid rgb(186, 234, 186);
 }
 
-.report--complete .report-container__content--info {
+.report--complete .report-container__content--info,
+.report--complete .report-container__delete-button--icon {
     color: var(--color-complete);
 }
 
@@ -266,7 +269,8 @@
     border-left: 6px solid rgb(209, 197, 240);
 }
 
-.report--user-update .report-container__content--info {
+.report--user-update .report-container__content--info,
+.report--user-update .report-container__delete-button--icon {
     color: var(--color-user-update);
 }
 
@@ -292,7 +296,8 @@
     border-left: 6px solid rgb(161, 228, 228);
 }
 
-.report--update .report-container__content--info {
+.report--update .report-container__content--info,
+.report--update .report-container__delete-button--icon {
     color: var(--color-update);
 }
 
